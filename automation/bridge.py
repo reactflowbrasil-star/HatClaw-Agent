@@ -12,10 +12,14 @@ import shutil
 import subprocess
 import sys
 import threading
+import time
+import uuid
 import webbrowser
+from collections import deque
+from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 HOST = "127.0.0.1"
 PORT = int(os.getenv("AUTOMATION_PORT", "8765"))
@@ -28,7 +32,17 @@ DEFAULT_ORIGINS = (
 )
 ALLOWED_ORIGINS = {item.strip().rstrip("/") for item in os.getenv("AUTOMATION_ALLOWED_ORIGINS", DEFAULT_ORIGINS).split(",") if item.strip()}
 DEVICE = os.getenv("AUTOMATION_DEVICE", "desktop").lower()
+DEFAULT_TIMEOUT = float(os.getenv("AUTOMATION_TIMEOUT", "15"))
+MAX_TIMEOUT = 60.0
+MAX_LOG_ENTRIES = 200
+ALLOWED_ACTIONS = {
+    "browser.open", "browser.navigate", "browser.query", "browser.click",
+    "browser.type", "browser.fill", "browser.scroll", "browser.wait",
+    "browser.read", "browser.extract", "files.list", "files.read", "files.write",
+}
 _browser_lock = threading.Lock()
+_log_lock = threading.Lock()
+_execution_log: deque[dict] = deque(maxlen=MAX_LOG_ENTRIES)
 _driver = None
 
 
@@ -88,6 +102,102 @@ def dom_driver():
     return appium_driver() if DEVICE == "android" else selenium_driver()
 
 
+def action_timeout(params: dict) -> float:
+    try:
+        timeout = float(params.get("timeout", DEFAULT_TIMEOUT))
+    except (TypeError, ValueError) as exc:
+        raise ValueError("Timeout inválido.") from exc
+    if timeout <= 0 or timeout > MAX_TIMEOUT:
+        raise ValueError(f"O timeout deve estar entre 0 e {int(MAX_TIMEOUT)} segundos.")
+    return timeout
+
+
+def selector_locator(params: dict):
+    from selenium.webdriver.common.by import By
+
+    selector = str(params.get("selector", "")).strip()
+    if not selector or len(selector) > 500:
+        raise ValueError("Seletor CSS ou XPath inválido.")
+    selector_type = str(params.get("selectorType", "auto")).lower()
+    if selector_type not in {"auto", "css", "xpath"}:
+        raise ValueError("selectorType deve ser auto, css ou xpath.")
+    if selector_type == "xpath" or (selector_type == "auto" and selector.startswith(("/", "("))):
+        return (By.XPATH, selector)
+    return (By.CSS_SELECTOR, selector)
+
+
+def wait_for(params: dict, condition: str = "present"):
+    from selenium.common.exceptions import TimeoutException
+    from selenium.webdriver.support import expected_conditions as ec
+    from selenium.webdriver.support.ui import WebDriverWait
+
+    driver = dom_driver()
+    locator = selector_locator(params)
+    conditions = {
+        "present": ec.presence_of_element_located(locator),
+        "visible": ec.visibility_of_element_located(locator),
+        "clickable": ec.element_to_be_clickable(locator),
+        "absent": ec.invisibility_of_element_located(locator),
+    }
+    if condition not in conditions:
+        raise ValueError("Condição deve ser present, visible, clickable ou absent.")
+    try:
+        return WebDriverWait(driver, action_timeout(params), poll_frequency=0.2).until(conditions[condition])
+    except TimeoutException as exc:
+        raise RuntimeError(f"Elemento não atingiu a condição '{condition}' dentro do timeout.") from exc
+
+
+def element_action(params: dict, operation, condition: str = "visible"):
+    from selenium.common.exceptions import StaleElementReferenceException
+
+    last_error = None
+    for _ in range(3):
+        try:
+            return operation(wait_for(params, condition))
+        except StaleElementReferenceException as exc:
+            last_error = exc
+    raise RuntimeError("O DOM mudou durante a ação; o elemento permaneceu instável.") from last_error
+
+
+def element_snapshot(element: object) -> dict:
+    attributes = {}
+    for name in ("id", "name", "type", "role", "href", "value", "aria-label", "placeholder"):
+        value = element.get_attribute(name)
+        if value:
+            attributes[name] = value[:2_000]
+    return {
+        "tag": element.tag_name,
+        "text": (element.text or "")[:10_000],
+        "attributes": attributes,
+        "displayed": element.is_displayed(),
+        "enabled": element.is_enabled(),
+    }
+
+
+def safe_log_parameters(params: dict) -> dict:
+    safe = {}
+    for key, value in params.items():
+        if key.lower() in {"text", "content", "token"}:
+            safe[key] = f"<redacted:{len(str(value))} chars>"
+        else:
+            safe[key] = str(value)[:1_000]
+    return safe
+
+
+def record_execution(execution_id: str, action: str, params: dict, started: float, ok: bool, message: str) -> None:
+    entry = {
+        "id": execution_id,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "action": action,
+        "parameters": safe_log_parameters(params),
+        "ok": ok,
+        "message": message[:2_000],
+        "durationMs": round((time.monotonic() - started) * 1_000),
+    }
+    with _log_lock:
+        _execution_log.append(entry)
+
+
 def execute(action: str, params: dict) -> tuple[str, object | None]:
     if action in {"browser.open", "browser.navigate"}:
         url = valid_url(str(params.get("url", "https://www.google.com")))
@@ -103,24 +213,57 @@ def execute(action: str, params: dict) -> tuple[str, object | None]:
                 webbrowser.open(url, new=1)
         return f"Chrome aberto em {url}.", {"url": url}
 
-    if action in {"browser.click", "browser.type", "browser.read"}:
-        from selenium.webdriver.common.by import By
+    if action == "browser.query":
+        driver = dom_driver()
+        wait_for(params, "present")
+        elements = driver.find_elements(*selector_locator(params))[:100]
+        return f"{len(elements)} elemento(s) encontrado(s).", {"elements": [element_snapshot(item) for item in elements]}
+
+    if action in {"browser.click", "browser.type", "browser.fill", "browser.read", "browser.extract"}:
         selector = str(params.get("selector", "")).strip()
-        if not selector or len(selector) > 500:
-            raise ValueError("Seletor CSS inválido.")
-        element = dom_driver().find_element(By.CSS_SELECTOR, selector)
         if action == "browser.click":
-            element.click()
+            element_action(params, lambda element: element.click(), "clickable")
             return f"Clique executado em {selector}.", None
-        if action == "browser.type":
+        if action in {"browser.type", "browser.fill"}:
             text = str(params.get("text", ""))
             if len(text) > 50_000:
                 raise ValueError("O texto excede 50.000 caracteres.")
-            element.clear()
-            element.send_keys(text)
-            return f"Texto digitado em {selector}.", None
-        value = element.text or element.get_attribute("value") or ""
-        return f"Conteúdo lido de {selector}.", {"text": value[:50_000]}
+            def fill(element):
+                element.clear()
+                element.send_keys(text)
+            element_action(params, fill)
+            return f"Campo preenchido em {selector}.", None
+
+        mode = "text" if action == "browser.read" else str(params.get("mode", "text")).lower()
+        if mode not in {"text", "html", "value", "href"}:
+            raise ValueError("Modo de extração deve ser text, html, value ou href.")
+        def extract(element):
+            if mode == "html":
+                return element.get_attribute("outerHTML") or ""
+            if mode in {"value", "href"}:
+                return element.get_attribute(mode) or ""
+            return element.text or element.get_attribute("value") or ""
+        value = element_action(params, extract)
+        return f"Conteúdo extraído de {selector}.", {"mode": mode, "content": value[:50_000]}
+
+    if action == "browser.scroll":
+        driver = dom_driver()
+        selector = str(params.get("selector", "")).strip()
+        if selector:
+            element = wait_for(params, "present")
+            driver.execute_script("arguments[0].scrollIntoView({behavior:'smooth',block:'center'});", element)
+            return f"Rolagem executada até {selector}.", None
+        try:
+            x, y = int(params.get("x", 0)), int(params.get("y", 500))
+        except (TypeError, ValueError) as exc:
+            raise ValueError("Coordenadas de rolagem inválidas.") from exc
+        driver.execute_script("window.scrollBy(arguments[0], arguments[1]);", x, y)
+        return f"Rolagem executada em ({x}, {y}).", None
+
+    if action == "browser.wait":
+        condition = str(params.get("condition", "present")).lower()
+        wait_for(params, condition)
+        return f"Condição '{condition}' atendida para {params.get('selector')}.", {"condition": condition}
 
     path = safe_path(str(params.get("path", ".")))
     if action == "files.list":
@@ -177,15 +320,29 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        if self.path != "/health" or not self.authorized():
-            self.reply(404 if self.path != "/health" else 403, {"ok": False, "message": "Indisponível."})
+        request_url = urlparse(self.path)
+        if request_url.path not in {"/health", "/v1/logs"} or not self.authorized():
+            self.reply(404 if request_url.path not in {"/health", "/v1/logs"} else 403, {"ok": False, "message": "Indisponível."})
             return
-        self.reply(200, {"ok": True, "platform": platform.system(), "device": DEVICE, "root": str(ROOT)})
+        if request_url.path == "/health":
+            self.reply(200, {"ok": True, "platform": platform.system(), "device": DEVICE, "root": str(ROOT)})
+            return
+        try:
+            limit = min(200, max(1, int(parse_qs(request_url.query).get("limit", [50])[0])))
+        except ValueError:
+            limit = 50
+        with _log_lock:
+            entries = list(_execution_log)[-limit:]
+        self.reply(200, {"ok": True, "entries": entries})
 
     def do_POST(self):
         if self.path != "/v1/actions" or not self.authorized():
             self.reply(404 if self.path != "/v1/actions" else 403, {"ok": False, "message": "Indisponível."})
             return
+        execution_id = str(uuid.uuid4())
+        started = time.monotonic()
+        action = "unknown"
+        params = {}
         try:
             length = int(self.headers.get("Content-Length", "0"))
             if length <= 0 or length > MAX_BODY:
@@ -194,15 +351,22 @@ class Handler(BaseHTTPRequestHandler):
             if body.get("confirmed") is not True:
                 raise PermissionError("A confirmação do usuário é obrigatória.")
             action = str(body.get("action", ""))
-            if action not in {"browser.open", "browser.navigate", "browser.click", "browser.type", "browser.read", "files.list", "files.read", "files.write"}:
+            params = body.get("parameters") or {}
+            if not isinstance(params, dict):
+                raise ValueError("Parâmetros inválidos.")
+            if action not in ALLOWED_ACTIONS:
                 raise ValueError("Ação não permitida.")
-            message, data = execute(action, body.get("parameters") or {})
-            self.reply(200, {"ok": True, "action": action, "message": message, "data": data})
+            message, data = execute(action, params)
+            record_execution(execution_id, action, params, started, True, message)
+            self.reply(200, {"ok": True, "action": action, "message": message, "data": data, "executionId": execution_id})
         except PermissionError as exc:
+            record_execution(execution_id, action, params, started, False, str(exc))
             self.reply(403, {"ok": False, "message": str(exc)})
         except (ValueError, OSError, RuntimeError, subprocess.SubprocessError) as exc:
+            record_execution(execution_id, action, params, started, False, str(exc))
             self.reply(400, {"ok": False, "message": str(exc)})
         except Exception as exc:
+            record_execution(execution_id, action, params, started, False, str(exc))
             self.reply(500, {"ok": False, "message": f"Falha na automação: {exc}"})
 
 

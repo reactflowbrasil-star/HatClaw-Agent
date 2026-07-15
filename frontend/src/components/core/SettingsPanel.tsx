@@ -23,10 +23,12 @@ import { ThemePicker } from './ThemePicker';
 import type { ChatService } from '../../services/chatService';
 import {
   checkAutomationBridge,
+  getAutomationLogs,
   getAutomationBridgeUrl,
   getAutomationToken,
   setAutomationBridgeUrl,
   setAutomationToken,
+  type AutomationLogEntry,
 } from '../../services/automationService';
 
 interface SettingsPanelProps {
@@ -73,6 +75,18 @@ const useStyles = makeStyles({
     fontSize: tokens.fontSizeBase200,
     color: tokens.colorPaletteRedForeground1,
   },
+  logList: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingVerticalXS,
+    maxHeight: '180px',
+    overflowY: 'auto',
+  },
+  logEntry: {
+    fontSize: tokens.fontSizeBase200,
+    color: tokens.colorNeutralForeground2,
+    overflowWrap: 'anywhere',
+  },
   destructiveButton: {
     backgroundColor: tokens.colorPaletteRedBackground3,
     color: tokens.colorNeutralForegroundOnBrand,
@@ -112,6 +126,8 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onOpenChan
   const [bridgeToken, setBridgeToken] = useState(getAutomationToken);
   const [bridgeStatus, setBridgeStatus] = useState<{ text: string; isError: boolean } | null>(null);
   const [testingBridge, setTestingBridge] = useState(false);
+  const [automationLogs, setAutomationLogs] = useState<AutomationLogEntry[]>([]);
+  const [loadingLogs, setLoadingLogs] = useState(false);
 
   const loadFilesInfo = useCallback(async () => {
     setLoadingInfo(true);
@@ -171,6 +187,18 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onOpenChan
     }
   };
 
+  const handleLoadLogs = async () => {
+    setLoadingLogs(true);
+    setBridgeStatus(null);
+    try {
+      setAutomationLogs((await getAutomationLogs(20)).reverse());
+    } catch (err) {
+      setBridgeStatus({ text: err instanceof Error ? err.message : 'Falha ao carregar registros', isError: true });
+    } finally {
+      setLoadingLogs(false);
+    }
+  };
+
   const count = filesInfo?.count ?? 0;
   const canCleanup = !loadingInfo && !cleaning && count > 0;
 
@@ -221,13 +249,26 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onOpenChan
             <Button appearance="secondary" disabled={testingBridge} onClick={handleTestBridge}>
               {testingBridge ? 'Testando…' : 'Salvar e testar ponte'}
             </Button>
+            <Button appearance="subtle" disabled={loadingLogs} onClick={handleLoadLogs}>
+              {loadingLogs ? 'Carregando…' : 'Ver execuções recentes'}
+            </Button>
             <Text className={styles.filesHint}>
-              Controla Chrome e arquivos deste dispositivo após sua confirmação.
+              Controla o Chrome por CSS ou XPath após sua confirmação: consultar, clicar,
+              preencher, rolar, aguardar e extrair conteúdo.
             </Text>
             {bridgeStatus && (
               <Text className={bridgeStatus.isError ? styles.statusError : styles.status}>
                 {bridgeStatus.text}
               </Text>
+            )}
+            {automationLogs.length > 0 && (
+              <div className={styles.logList} aria-label="Execuções recentes de automação">
+                {automationLogs.map((entry) => (
+                  <Text key={entry.id} className={styles.logEntry}>
+                    {entry.ok ? '✓' : '✕'} {entry.action} · {entry.durationMs} ms — {entry.message}
+                  </Text>
+                ))}
+              </div>
             )}
           </div>
         </div>

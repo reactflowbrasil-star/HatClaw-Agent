@@ -17,6 +17,18 @@ describe('parseAutomationIntent', () => {
     });
   });
 
+  it('recognizes CSS and XPath queries', () => {
+    expect(parseAutomationIntent('encontre elementos "button.primary"')?.parameters.selector).toBe('button.primary');
+    expect(parseAutomationIntent('clique no elemento "//button[@type=\'submit\']"')?.parameters.selector).toBe("//button[@type='submit']");
+  });
+
+  it('recognizes fill, scroll, wait and extraction', () => {
+    expect(parseAutomationIntent('preencha o campo "#email" com "a@b.com"')?.action).toBe('browser.fill');
+    expect(parseAutomationIntent('role até o elemento "#rodape"')?.action).toBe('browser.scroll');
+    expect(parseAutomationIntent('aguarde o elemento ".resultado" por 15 segundos')?.parameters.timeout).toBe('15');
+    expect(parseAutomationIntent('extraia o conteúdo do elemento "main" como html')?.parameters.mode).toBe('html');
+  });
+
   it('recognizes sandboxed file actions', () => {
     expect(parseAutomationIntent('liste arquivos')?.action).toBe('files.list');
     expect(parseAutomationIntent('leia o arquivo "notas.txt"')?.action).toBe('files.read');
