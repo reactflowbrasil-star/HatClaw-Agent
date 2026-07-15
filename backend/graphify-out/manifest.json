@@ -1,0 +1,312 @@
+{
+  "WebApp.Api.Tests/AgentFrameworkServiceConfigTests.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "929bdd4af921d687aa0bc9c7f15b14da",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/ConversationsEndpointTests.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "8793d268b3b15c70baf973a2bda5372a",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/ErrorResponseFactoryTests.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "014a2e14fa6d9f5ef27d35c2cd2844a6",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/UploadedFilesPrefixTests.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "8354d5b7b7685de3e2a304aeac4d5fec",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/WebApp.Api.Tests.csproj": {
+    "mtime": 1776814048.0,
+    "ast_hash": "069ba390e77917a8d75b1881270f7c72",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/bin/Release/net10.0/WebApp.Api.Tests.deps.json": {
+    "mtime": 1784131618.956406,
+    "ast_hash": "a851c4dd5fb65c1e091da8a6f303206a",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/bin/Release/net10.0/WebApp.Api.Tests.runtimeconfig.json": {
+    "mtime": 1784131619.022405,
+    "ast_hash": "9e0432058f9642208799e52e6033a050",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/bin/Release/net10.0/WebApp.Api.deps.json": {
+    "mtime": 1784131617.081408,
+    "ast_hash": "4d2da25705ac76850217a94aa7cc328f",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/bin/Release/net10.0/WebApp.Api.runtimeconfig.json": {
+    "mtime": 1784131617.1454067,
+    "ast_hash": "a75e8957d89b4d40a6a1079d34e7c9ce",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/bin/Release/net10.0/WebApp.Api.staticwebassets.endpoints.json": {
+    "mtime": 1784131616.935406,
+    "ast_hash": "f44ca44dd881261586b84442f2201257",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/bin/Release/net10.0/appsettings.Development.json": {
+    "mtime": 1776814048.0,
+    "ast_hash": "5310c591b1331b1a4690e3ad3f7a6f44",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/bin/Release/net10.0/appsettings.json": {
+    "mtime": 1776814048.0,
+    "ast_hash": "cdac6701661caa4a869475a71e53d75b",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/obj/Release/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
+    "mtime": 1784131617.5634055,
+    "ast_hash": "8479efdf06e2d26e053d27ffa6964185",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/obj/Release/net10.0/MicrosoftTestingPlatformEntryPoint.cs": {
+    "mtime": 1784131617.585405,
+    "ast_hash": "627de8cf54fb4d9960a1b947673a011f",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/obj/Release/net10.0/SelfRegisteredExtensions.cs": {
+    "mtime": 1784131617.6034043,
+    "ast_hash": "4676e492c44e3f37ef97ff33722917fc",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/obj/Release/net10.0/WebApp.Api.Tests.AssemblyInfo.cs": {
+    "mtime": 1784131617.666407,
+    "ast_hash": "4f92b3c4c46a099345a977777d45999c",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/obj/Release/net10.0/WebApp.Api.Tests.GlobalUsings.g.cs": {
+    "mtime": 1784131602.3724484,
+    "ast_hash": "ed4057a2348e49c86b807cccef437cae",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/obj/WebApp.Api.Tests.csproj.nuget.dgspec.json": {
+    "mtime": 1784131602.105448,
+    "ast_hash": "70df7a2c8249179fbe594cb9e9fffe71",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/obj/project.assets.json": {
+    "mtime": 1784131601.9914525,
+    "ast_hash": "f2d96072501e3e004e40773e95e97753",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Models/AgentMetadata.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "e7687b5aef6412cb4980d72f9e82bcfd",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Models/AnnotationInfo.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "5d12fb555c9dd7f86ffe5049971beaaf",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Models/ChatRequest.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "4ee3aad7014a720d58f99583f470fc1d",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Models/ChatResponse.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "b6ebd0af5b7faa6d8630c4f4480e55e1",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Models/ConversationModels.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "26927f5fd6f8bd44f5ad9054e52474d8",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Models/ErrorResponse.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "2e1d6ec0ee99e7ddc97282af642205cc",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Models/StreamChunk.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "74ad4e433418b4c02a2f8ee715d8015c",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Models/UploadedFilesModels.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "da3ba57157f6b5941119606fb1c0c8eb",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Program.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "aa466d5fc5ebecf0564b4a074e4c6bb6",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Properties/launchSettings.json": {
+    "mtime": 1776814048.0,
+    "ast_hash": "e8eeabd538a6473e302bde04999681fb",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/Services/AgentFrameworkService.cs": {
+    "mtime": 1784135040.3197842,
+    "ast_hash": "23938228eaba953ec8262d675e83dc84",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/WebApp.Api.csproj": {
+    "mtime": 1776814048.0,
+    "ast_hash": "5520f534ed39c9c736edf923864422f2",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/appsettings.Development.json": {
+    "mtime": 1776814048.0,
+    "ast_hash": "5310c591b1331b1a4690e3ad3f7a6f44",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/appsettings.json": {
+    "mtime": 1776814048.0,
+    "ast_hash": "cdac6701661caa4a869475a71e53d75b",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/bin/Release/net10.0/WebApp.Api.deps.json": {
+    "mtime": 1784131617.081408,
+    "ast_hash": "4d2da25705ac76850217a94aa7cc328f",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/bin/Release/net10.0/WebApp.Api.runtimeconfig.json": {
+    "mtime": 1784131617.1454067,
+    "ast_hash": "a75e8957d89b4d40a6a1079d34e7c9ce",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/bin/Release/net10.0/WebApp.Api.staticwebassets.endpoints.json": {
+    "mtime": 1784131616.935406,
+    "ast_hash": "f44ca44dd881261586b84442f2201257",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/bin/Release/net10.0/appsettings.Development.json": {
+    "mtime": 1776814048.0,
+    "ast_hash": "5310c591b1331b1a4690e3ad3f7a6f44",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/bin/Release/net10.0/appsettings.json": {
+    "mtime": 1776814048.0,
+    "ast_hash": "cdac6701661caa4a869475a71e53d75b",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
+    "mtime": 1784131612.5519764,
+    "ast_hash": "8479efdf06e2d26e053d27ffa6964185",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/WebApp.Api.AssemblyInfo.cs": {
+    "mtime": 1784131612.6359758,
+    "ast_hash": "d7e675204a0e125772231fd4f02be9e1",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/WebApp.Api.GlobalUsings.g.cs": {
+    "mtime": 1784131602.753448,
+    "ast_hash": "5b3fdaae7b59d230d7d136eab049a98a",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/WebApp.Api.MvcApplicationPartsAssemblyInfo.cs": {
+    "mtime": 1784131612.8709753,
+    "ast_hash": "a57b6c5fe7b950d2c2705b96206c6c5d",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/rjsmcshtml.dswa.cache.json": {
+    "mtime": 1784131616.7884037,
+    "ast_hash": "a6d2368655cb52e8825ffb2e96a588e2",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/rjsmrazor.dswa.cache.json": {
+    "mtime": 1784131616.7864072,
+    "ast_hash": "13e05d159bb8dbcabc33f7fac8abf775",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/rpswa.dswa.cache.json": {
+    "mtime": 1784131612.4809773,
+    "ast_hash": "b33e0db313cf441c2b8dabb4c991bb7c",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/staticwebassets.build.endpoints.json": {
+    "mtime": 1784131616.935406,
+    "ast_hash": "f44ca44dd881261586b84442f2201257",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/staticwebassets.build.json": {
+    "mtime": 1784131616.9274068,
+    "ast_hash": "3b0f27decc2cee3c733b0deb067fcf97",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/WebApp.Api.csproj.nuget.dgspec.json": {
+    "mtime": 1784131599.3814466,
+    "ast_hash": "ca021f6827bfdc95d221124ff43b43c2",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/project.assets.json": {
+    "mtime": 1784131599.3744466,
+    "ast_hash": "bcd20c14212085b8529421bfeb112921",
+    "semantic_hash": ""
+  },
+  "WebApp.ServiceDefaults/Extensions.cs": {
+    "mtime": 1776814048.0,
+    "ast_hash": "d288086d22145a01b9706323866cb149",
+    "semantic_hash": ""
+  },
+  "WebApp.ServiceDefaults/WebApp.ServiceDefaults.csproj": {
+    "mtime": 1776814048.0,
+    "ast_hash": "d9a428db2d236e43704816179fb4c597",
+    "semantic_hash": ""
+  },
+  "WebApp.ServiceDefaults/bin/Release/net10.0/WebApp.ServiceDefaults.deps.json": {
+    "mtime": 1784131612.0939744,
+    "ast_hash": "d6e742c6abde7ccc6a6e343e48291d52",
+    "semantic_hash": ""
+  },
+  "WebApp.ServiceDefaults/obj/Release/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
+    "mtime": 1784131603.1794465,
+    "ast_hash": "8479efdf06e2d26e053d27ffa6964185",
+    "semantic_hash": ""
+  },
+  "WebApp.ServiceDefaults/obj/Release/net10.0/WebApp.ServiceDefaults.AssemblyInfo.cs": {
+    "mtime": 1784131603.2604501,
+    "ast_hash": "a40d955a4133c628b2086970177fb0f1",
+    "semantic_hash": ""
+  },
+  "WebApp.ServiceDefaults/obj/Release/net10.0/WebApp.ServiceDefaults.GlobalUsings.g.cs": {
+    "mtime": 1784131602.7504475,
+    "ast_hash": "9706b2dbf69f7db452e8b0d5baf54dcf",
+    "semantic_hash": ""
+  },
+  "WebApp.ServiceDefaults/obj/WebApp.ServiceDefaults.csproj.nuget.dgspec.json": {
+    "mtime": 1784131597.1584475,
+    "ast_hash": "127722a0ebfb8c3c19461b867f5455e9",
+    "semantic_hash": ""
+  },
+  "WebApp.ServiceDefaults/obj/project.assets.json": {
+    "mtime": 1784131597.1454496,
+    "ast_hash": "6d310774230c6c0bc4cd5c9a26b51081",
+    "semantic_hash": ""
+  },
+  "WebApp.sln": {
+    "mtime": 1776814048.0,
+    "ast_hash": "9ab548a4a35a0bc65c5569b7fa85fa58",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1776814048.0,
+    "ast_hash": "0603fd7578436fe77b46638a72416314",
+    "semantic_hash": ""
+  },
+  "WebApp.Api.Tests/obj/Release/net10.0/WebApp.Api.Tests.csproj.FileListAbsolute.txt": {
+    "mtime": 1784131619.0404036,
+    "ast_hash": "ad3846d30defc09fb43413516245f60c",
+    "semantic_hash": ""
+  },
+  "WebApp.Api/obj/Release/net10.0/WebApp.Api.csproj.FileListAbsolute.txt": {
+    "mtime": 1784131617.161407,
+    "ast_hash": "df2e4e446da703353f668db2f84cd446",
+    "semantic_hash": ""
+  },
+  "WebApp.ServiceDefaults/obj/Release/net10.0/WebApp.ServiceDefaults.csproj.FileListAbsolute.txt": {
+    "mtime": 1784131612.116974,
+    "ast_hash": "daeecc0a33150aa400fdbaa2b59fb82d",
+    "semantic_hash": ""
+  }
+}
