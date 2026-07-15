@@ -103,5 +103,10 @@
   "101": "entraTenantId",
   "102": "serviceManagementReference",
   "103": "webImageName",
-  "104": "test.md"
+  "104": "test.md",
+  "105": "ENTRA_BACKEND_CLIENT_ID",
+  "106": "ENTRA_SPA_CLIENT_ID",
+  "107": "WEB_ENDPOINT",
+  "108": "WEB_IDENTITY_PRINCIPAL_ID",
+  "109": "start-bridge.ps1"
 }

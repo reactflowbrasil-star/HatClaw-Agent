@@ -57,7 +57,7 @@
       "label": "safe_path()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L35",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "automation_bridge_safe_path",
       "community": 88,
@@ -77,7 +77,7 @@
       "label": "valid_url()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L42",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "automation_bridge_valid_url",
       "community": 88,
@@ -87,7 +87,7 @@
       "label": "adb_open()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L49",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "automation_bridge_adb_open",
       "community": 88,
@@ -97,7 +97,7 @@
       "label": "selenium_driver()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L56",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "automation_bridge_selenium_driver",
       "community": 88,
@@ -107,7 +107,7 @@
       "label": "appium_driver()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L70",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "automation_bridge_appium_driver",
       "community": 88,
@@ -117,17 +117,87 @@
       "label": "dom_driver()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L87",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "automation_bridge_dom_driver",
       "community": 88,
       "norm_label": "dom_driver()"
     },
     {
+      "label": "action_timeout()",
+      "file_type": "code",
+      "source_file": "automation/bridge.py",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "automation_bridge_action_timeout",
+      "community": 88,
+      "norm_label": "action_timeout()"
+    },
+    {
+      "label": "selector_locator()",
+      "file_type": "code",
+      "source_file": "automation/bridge.py",
+      "source_location": "L115",
+      "_origin": "ast",
+      "id": "automation_bridge_selector_locator",
+      "community": 88,
+      "norm_label": "selector_locator()"
+    },
+    {
+      "label": "wait_for()",
+      "file_type": "code",
+      "source_file": "automation/bridge.py",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "automation_bridge_wait_for",
+      "community": 88,
+      "norm_label": "wait_for()"
+    },
+    {
+      "label": "element_action()",
+      "file_type": "code",
+      "source_file": "automation/bridge.py",
+      "source_location": "L150",
+      "_origin": "ast",
+      "id": "automation_bridge_element_action",
+      "community": 88,
+      "norm_label": "element_action()"
+    },
+    {
+      "label": "element_snapshot()",
+      "file_type": "code",
+      "source_file": "automation/bridge.py",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "automation_bridge_element_snapshot",
+      "community": 88,
+      "norm_label": "element_snapshot()"
+    },
+    {
+      "label": "safe_log_parameters()",
+      "file_type": "code",
+      "source_file": "automation/bridge.py",
+      "source_location": "L177",
+      "_origin": "ast",
+      "id": "automation_bridge_safe_log_parameters",
+      "community": 88,
+      "norm_label": "safe_log_parameters()"
+    },
+    {
+      "label": "record_execution()",
+      "file_type": "code",
+      "source_file": "automation/bridge.py",
+      "source_location": "L187",
+      "_origin": "ast",
+      "id": "automation_bridge_record_execution",
+      "community": 88,
+      "norm_label": "record_execution()"
+    },
+    {
       "label": "execute()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L91",
+      "source_location": "L201",
       "_origin": "ast",
       "id": "automation_bridge_execute",
       "community": 88,
@@ -137,7 +207,7 @@
       "label": "Handler",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L145",
+      "source_location": "L288",
       "_origin": "ast",
       "id": "automation_bridge_handler",
       "community": 88,
@@ -157,7 +227,7 @@
       "label": ".log_message()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L146",
+      "source_location": "L289",
       "_origin": "ast",
       "id": "automation_bridge_handler_log_message",
       "community": 88,
@@ -167,7 +237,7 @@
       "label": ".cors()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L149",
+      "source_location": "L292",
       "_origin": "ast",
       "id": "automation_bridge_handler_cors",
       "community": 88,
@@ -177,7 +247,7 @@
       "label": ".reply()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L158",
+      "source_location": "L301",
       "_origin": "ast",
       "id": "automation_bridge_handler_reply",
       "community": 88,
@@ -187,7 +257,7 @@
       "label": ".authorized()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L167",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "automation_bridge_handler_authorized",
       "community": 88,
@@ -197,7 +267,7 @@
       "label": ".do_OPTIONS()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L171",
+      "source_location": "L314",
       "_origin": "ast",
       "id": "automation_bridge_handler_do_options",
       "community": 88,
@@ -207,7 +277,7 @@
       "label": ".do_GET()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L179",
+      "source_location": "L322",
       "_origin": "ast",
       "id": "automation_bridge_handler_do_get",
       "community": 88,
@@ -217,21 +287,21 @@
       "label": ".do_POST()",
       "file_type": "code",
       "source_file": "automation/bridge.py",
-      "source_location": "L185",
+      "source_location": "L338",
       "_origin": "ast",
       "id": "automation_bridge_handler_do_post",
       "community": 88,
       "norm_label": ".do_post()"
     },
     {
-      "label": "HatClaw local automation bridge.  Runs only on loopback and exposes a small allo",
+      "label": "HatClaw local automation bridge.  Runs only on loopback and exposes a small al",
       "file_type": "rationale",
       "source_file": "automation/bridge.py",
       "source_location": "L1",
       "_origin": "ast",
       "id": "automation_bridge_rationale_1",
       "community": 88,
-      "norm_label": "hatclaw local automation bridge.  runs only on loopback and exposes a small allo"
+      "norm_label": "hatclaw local automation bridge.  runs only on loopback and exposes a small al"
     },
     {
       "label": "start-bridge.ps1",
@@ -281,7 +351,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests",
-      "community": 96,
+      "community": 17,
       "norm_label": "agentframeworkserviceconfigtests"
     },
     {
@@ -297,7 +367,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_useobo_truewhenbackendclientidandtenantidset",
-      "community": 96,
+      "community": 17,
       "norm_label": ".useobo_truewhenbackendclientidandtenantidset()"
     },
     {
@@ -307,7 +377,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_cs_testmethod",
-      "community": 96,
+      "community": 17,
       "norm_label": "testmethod"
     },
     {
@@ -323,7 +393,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_useobo_falseindevelopment",
-      "community": 96,
+      "community": 17,
       "norm_label": ".useobo_falseindevelopment()"
     },
     {
@@ -339,7 +409,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_useobo_falsewhenbackendclientidmissing",
-      "community": 96,
+      "community": 17,
       "norm_label": ".useobo_falsewhenbackendclientidmissing()"
     },
     {
@@ -355,7 +425,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_useobo_falsewhentenantidmissing",
-      "community": 96,
+      "community": 17,
       "norm_label": ".useobo_falsewhentenantidmissing()"
     },
     {
@@ -371,7 +441,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_oborequiresmanagedidentityclientid",
-      "community": 96,
+      "community": 17,
       "norm_label": ".oborequiresmanagedidentityclientid()"
     },
     {
@@ -387,7 +457,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_obodoesnotthrowwhenmanagedidentityclientidset",
-      "community": 96,
+      "community": 17,
       "norm_label": ".obodoesnotthrowwhenmanagedidentityclientidset()"
     },
     {
@@ -403,7 +473,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_agentversion_parsedwhenset",
-      "community": 96,
+      "community": 17,
       "norm_label": ".agentversion_parsedwhenset()"
     },
     {
@@ -419,7 +489,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_agentversion_nullwhenmissing",
-      "community": 96,
+      "community": 17,
       "norm_label": ".agentversion_nullwhenmissing()"
     },
     {
@@ -435,7 +505,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_agentversion_nullwhenempty",
-      "community": 96,
+      "community": 17,
       "norm_label": ".agentversion_nullwhenempty()"
     },
     {
@@ -451,7 +521,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_agentversion_nullwhenwhitespace",
-      "community": 96,
+      "community": 17,
       "norm_label": ".agentversion_nullwhenwhitespace()"
     },
     {
@@ -467,7 +537,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_portalagentid_splitsnameandversion",
-      "community": 96,
+      "community": 17,
       "norm_label": ".portalagentid_splitsnameandversion()"
     },
     {
@@ -483,7 +553,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_portalagentid_handlesnoversion",
-      "community": 96,
+      "community": 17,
       "norm_label": ".portalagentid_handlesnoversion()"
     },
     {
@@ -499,7 +569,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_portalagentid_handleswhitespaceversion",
-      "community": 96,
+      "community": 17,
       "norm_label": ".portalagentid_handleswhitespaceversion()"
     },
     {
@@ -515,7 +585,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_portalresourceid_extractsresourcename",
-      "community": 96,
+      "community": 17,
       "norm_label": ".portalresourceid_extractsresourcename()"
     },
     {
@@ -531,7 +601,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_tests_agentframeworkserviceconfigtests_webapp_api_tests_agentframeworkserviceconfigtests_portalresourceid_handlesprojectsuffix",
-      "community": 96,
+      "community": 17,
       "norm_label": ".portalresourceid_handlesprojectsuffix()"
     },
     {
@@ -1216,7 +1286,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_webapp_api_models_chatresponse",
-      "community": 23,
+      "community": 88,
       "norm_label": "chatresponse.cs"
     },
     {
@@ -1232,7 +1302,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_models_chatresponse_webapp_api_models_chatresponse",
-      "community": 23,
+      "community": 88,
       "norm_label": "chatresponse"
     },
     {
@@ -1242,7 +1312,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "datetime",
-      "community": 23,
+      "community": 88,
       "norm_label": "datetime"
     },
     {
@@ -2027,7 +2097,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_webapp_api_services_agentframeworkservice_cs_list",
-      "community": 22,
+      "community": 35,
       "norm_label": "list"
     },
     {
@@ -2093,7 +2163,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "responseitem",
-      "community": 22,
+      "community": 35,
       "norm_label": "responseitem"
     },
     {
@@ -2125,7 +2195,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_services_agentframeworkservice_webapp_api_services_agentframeworkservice_extractannotations",
-      "community": 22,
+      "community": 35,
       "norm_label": ".extractannotations()"
     },
     {
@@ -2135,7 +2205,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_webapp_api_services_agentframeworkservice_cs_dictionary",
-      "community": 22,
+      "community": 35,
       "norm_label": "dictionary"
     },
     {
@@ -2293,7 +2363,7 @@
       },
       "_origin": "ast",
       "id": "backend_webapp_api_services_agentframeworkservice_webapp_api_services_agentframeworkservice_parsestarterprompts",
-      "community": 22,
+      "community": 35,
       "norm_label": ".parsestarterprompts()"
     },
     {
@@ -3904,7 +3974,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_app",
-      "community": 3,
+      "community": 94,
       "norm_label": "app.tsx"
     },
     {
@@ -3914,7 +3984,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "frontend_src_app_app",
-      "community": 3,
+      "community": 94,
       "norm_label": "app()"
     },
     {
@@ -3974,7 +4044,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "frontend_src_components_chatinterface_chatinterfaceprops",
-      "community": 30,
+      "community": 0,
       "norm_label": "chatinterfaceprops"
     },
     {
@@ -3994,7 +4064,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar",
-      "community": 94,
+      "community": 0,
       "norm_label": "conversationsidebar.tsx"
     },
     {
@@ -4004,7 +4074,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar_conversationsidebarprops",
-      "community": 94,
+      "community": 0,
       "norm_label": "conversationsidebarprops"
     },
     {
@@ -4014,7 +4084,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar_usestyles",
-      "community": 94,
+      "community": 0,
       "norm_label": "usestyles"
     },
     {
@@ -4024,7 +4094,7 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar_formatdate",
-      "community": 94,
+      "community": 0,
       "norm_label": "formatdate()"
     },
     {
@@ -4034,7 +4104,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar_conversationsidebar",
-      "community": 94,
+      "community": 0,
       "norm_label": "conversationsidebar()"
     },
     {
@@ -4204,7 +4274,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_chat_citationmarker",
-      "community": 18,
+      "community": 68,
       "norm_label": "citationmarker.tsx"
     },
     {
@@ -4214,7 +4284,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "frontend_src_components_chat_citationmarker_citationmarkerprops",
-      "community": 18,
+      "community": 68,
       "norm_label": "citationmarkerprops"
     },
     {
@@ -4224,7 +4294,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "frontend_src_components_chat_citationmarker_citationmarkercomponent",
-      "community": 18,
+      "community": 68,
       "norm_label": "citationmarkercomponent()"
     },
     {
@@ -4234,7 +4304,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "frontend_src_components_chat_citationmarker_citationmarker",
-      "community": 18,
+      "community": 68,
       "norm_label": "citationmarker"
     },
     {
@@ -4474,7 +4544,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_chat_usageinfo",
-      "community": 82,
+      "community": 94,
       "norm_label": "usageinfo.tsx"
     },
     {
@@ -4484,7 +4554,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "frontend_src_components_chat_usageinfo_usageinfoprops",
-      "community": 82,
+      "community": 94,
       "norm_label": "usageinfoprops"
     },
     {
@@ -4494,7 +4564,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "frontend_src_components_chat_usageinfo_usageinfo",
-      "community": 82,
+      "community": 94,
       "norm_label": "usageinfo()"
     },
     {
@@ -4544,7 +4614,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "frontend_src_components_chat_usermessage_usermessage",
-      "community": 82,
+      "community": 30,
       "norm_label": "usermessage"
     },
     {
@@ -4644,7 +4714,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary",
-      "community": 3,
+      "community": 69,
       "norm_label": "errorboundary.tsx"
     },
     {
@@ -4654,7 +4724,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_usestyles",
-      "community": 3,
+      "community": 69,
       "norm_label": "usestyles"
     },
     {
@@ -4664,7 +4734,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundaryprops",
-      "community": 3,
+      "community": 69,
       "norm_label": "errorboundaryprops"
     },
     {
@@ -4674,7 +4744,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundarystate",
-      "community": 3,
+      "community": 69,
       "norm_label": "errorboundarystate"
     },
     {
@@ -4684,7 +4754,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary",
-      "community": 3,
+      "community": 69,
       "norm_label": "errorboundary"
     },
     {
@@ -4694,7 +4764,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_constructor",
-      "community": 3,
+      "community": 69,
       "norm_label": ".constructor()"
     },
     {
@@ -4704,7 +4774,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_getderivedstatefromerror",
-      "community": 3,
+      "community": 69,
       "norm_label": ".getderivedstatefromerror()"
     },
     {
@@ -4714,7 +4784,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_componentdidcatch",
-      "community": 3,
+      "community": 69,
       "norm_label": ".componentdidcatch()"
     },
     {
@@ -4724,7 +4794,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_reseterror",
-      "community": 3,
+      "community": 69,
       "norm_label": ".reseterror()"
     },
     {
@@ -4734,7 +4804,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_render",
-      "community": 3,
+      "community": 69,
       "norm_label": ".render()"
     },
     {
@@ -4744,7 +4814,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_defaulterrorfallback",
-      "community": 3,
+      "community": 69,
       "norm_label": "defaulterrorfallback()"
     },
     {
@@ -4854,7 +4924,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "frontend_src_components_core_markdown_markdownprops",
-      "community": 18,
+      "community": 68,
       "norm_label": "markdownprops"
     },
     {
@@ -5071,7 +5141,7 @@
       "label": "SettingsPanelProps",
       "file_type": "code",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L32",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "frontend_src_components_core_settingspanel_settingspanelprops",
       "community": 3,
@@ -5081,7 +5151,7 @@
       "label": "useStyles",
       "file_type": "code",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L38",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "frontend_src_components_core_settingspanel_usestyles",
       "community": 3,
@@ -5091,7 +5161,7 @@
       "label": "formatBytes()",
       "file_type": "code",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L91",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "frontend_src_components_core_settingspanel_formatbytes",
       "community": 3,
@@ -5101,7 +5171,7 @@
       "label": "SettingsPanel()",
       "file_type": "code",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L103",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "frontend_src_components_core_settingspanel_settingspanel",
       "community": 3,
@@ -5264,7 +5334,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext",
-      "community": 69,
+      "community": 0,
       "norm_label": "appcontext.tsx"
     },
     {
@@ -5274,7 +5344,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_appcontextvalue",
-      "community": 69,
+      "community": 0,
       "norm_label": "appcontextvalue"
     },
     {
@@ -5284,7 +5354,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_appcontext",
-      "community": 69,
+      "community": 0,
       "norm_label": "appcontext"
     },
     {
@@ -5294,7 +5364,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_devlogger",
-      "community": 69,
+      "community": 0,
       "norm_label": "devlogger"
     },
     {
@@ -5304,7 +5374,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_logstatechange",
-      "community": 69,
+      "community": 0,
       "norm_label": "logstatechange()"
     },
     {
@@ -5314,7 +5384,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_reducerwithlogging",
-      "community": 69,
+      "community": 0,
       "norm_label": "reducerwithlogging()"
     },
     {
@@ -5324,7 +5394,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_appprovider",
-      "community": 69,
+      "community": 0,
       "norm_label": "appprovider()"
     },
     {
@@ -5534,7 +5604,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_main",
-      "community": 3,
+      "community": 11,
       "norm_label": "main.tsx"
     },
     {
@@ -5544,7 +5614,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "frontend_src_main_rootelement",
-      "community": 3,
+      "community": 11,
       "norm_label": "rootelement"
     },
     {
@@ -5554,7 +5624,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_reducers_tests_appreducer_test",
-      "community": 69,
+      "community": 0,
       "norm_label": "appreducer.test.ts"
     },
     {
@@ -5564,7 +5634,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_src_reducers_tests_appreducer_test_createinitialstate",
-      "community": 69,
+      "community": 0,
       "norm_label": "createinitialstate()"
     },
     {
@@ -5574,7 +5644,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "frontend_src_reducers_tests_appreducer_test_createmockmessage",
-      "community": 69,
+      "community": 0,
       "norm_label": "createmockmessage()"
     },
     {
@@ -5584,7 +5654,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "frontend_src_reducers_tests_appreducer_test_createmockuser",
-      "community": 69,
+      "community": 0,
       "norm_label": "createmockuser()"
     },
     {
@@ -5594,7 +5664,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_reducers_appreducer",
-      "community": 69,
+      "community": 0,
       "norm_label": "appreducer.ts"
     },
     {
@@ -5604,7 +5674,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "frontend_src_reducers_appreducer_appreducer",
-      "community": 69,
+      "community": 0,
       "norm_label": "appreducer()"
     },
     {
@@ -5624,7 +5694,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_services_tests_chatservice_test",
-      "community": 69,
+      "community": 0,
       "norm_label": "chatservice.test.ts"
     },
     {
@@ -5651,7 +5721,7 @@
       "label": "AutomationIntent",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L11",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_automationintent",
       "community": 3,
@@ -5661,17 +5731,27 @@
       "label": "AutomationResult",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L17",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_automationresult",
       "community": 3,
       "norm_label": "automationresult"
     },
     {
+      "label": "AutomationLogEntry",
+      "file_type": "code",
+      "source_file": "frontend/src/services/automationService.ts",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "frontend_src_services_automationservice_automationlogentry",
+      "community": 3,
+      "norm_label": "automationlogentry"
+    },
+    {
       "label": "normalizeUrl()",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L28",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_normalizeurl",
       "community": 3,
@@ -5681,7 +5761,7 @@
       "label": "parseAutomationIntent()",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L33",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_parseautomationintent",
       "community": 3,
@@ -5691,7 +5771,7 @@
       "label": "getAutomationBridgeUrl()",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L80",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_getautomationbridgeurl",
       "community": 3,
@@ -5701,7 +5781,7 @@
       "label": "setAutomationBridgeUrl()",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L81",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_setautomationbridgeurl",
       "community": 3,
@@ -5711,7 +5791,7 @@
       "label": "getAutomationToken()",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L82",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_getautomationtoken",
       "community": 3,
@@ -5721,7 +5801,7 @@
       "label": "setAutomationToken()",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L83",
+      "source_location": "L130",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_setautomationtoken",
       "community": 3,
@@ -5731,7 +5811,7 @@
       "label": "request()",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L85",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_request",
       "community": 3,
@@ -5741,17 +5821,27 @@
       "label": "checkAutomationBridge()",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L97",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_checkautomationbridge",
       "community": 3,
       "norm_label": "checkautomationbridge()"
     },
     {
+      "label": "getAutomationLogs()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/automationService.ts",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "frontend_src_services_automationservice_getautomationlogs",
+      "community": 3,
+      "norm_label": "getautomationlogs()"
+    },
+    {
       "label": "executeAutomation()",
       "file_type": "code",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L103",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "frontend_src_services_automationservice_executeautomation",
       "community": 3,
@@ -5764,7 +5854,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_services_chatservice",
-      "community": 98,
+      "community": 0,
       "norm_label": "chatservice.ts"
     },
     {
@@ -5784,7 +5874,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "frontend_src_services_chatservice_chatservice_constructor",
-      "community": 69,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -5964,7 +6054,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "frontend_src_services_telemetry_inittelemetry",
-      "community": 3,
+      "community": 11,
       "norm_label": "inittelemetry()"
     },
     {
@@ -6024,7 +6114,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_types_appstate",
-      "community": 30,
+      "community": 0,
       "norm_label": "appstate.ts"
     },
     {
@@ -6034,7 +6124,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_conversationsummary",
-      "community": 94,
+      "community": 0,
       "norm_label": "conversationsummary"
     },
     {
@@ -6044,7 +6134,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_conversationmessageinfo",
-      "community": 98,
+      "community": 0,
       "norm_label": "conversationmessageinfo"
     },
     {
@@ -6054,7 +6144,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_appstate",
-      "community": 30,
+      "community": 0,
       "norm_label": "appstate"
     },
     {
@@ -6064,7 +6154,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_appaction",
-      "community": 69,
+      "community": 0,
       "norm_label": "appaction"
     },
     {
@@ -6074,7 +6164,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_initialappstate",
-      "community": 69,
+      "community": 0,
       "norm_label": "initialappstate"
     },
     {
@@ -6084,7 +6174,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_types_chat",
-      "community": 82,
+      "community": 94,
       "norm_label": "chat.ts"
     },
     {
@@ -6094,7 +6184,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_types_chat_ichatitem",
-      "community": 30,
+      "community": 82,
       "norm_label": "ichatitem"
     },
     {
@@ -6104,7 +6194,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "frontend_src_types_chat_imcpapprovalrequest",
-      "community": 82,
+      "community": 94,
       "norm_label": "imcpapprovalrequest"
     },
     {
@@ -6114,7 +6204,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "frontend_src_types_chat_iusageinfo",
-      "community": 82,
+      "community": 94,
       "norm_label": "iusageinfo"
     },
     {
@@ -6124,7 +6214,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "frontend_src_types_chat_ifileattachment",
-      "community": 30,
+      "community": 0,
       "norm_label": "ifileattachment"
     },
     {
@@ -6134,7 +6224,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "frontend_src_types_chat_iannotation",
-      "community": 18,
+      "community": 68,
       "norm_label": "iannotation"
     },
     {
@@ -6144,7 +6234,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "frontend_src_types_chat_iagentmetadata",
-      "community": 3,
+      "community": 94,
       "norm_label": "iagentmetadata"
     },
     {
@@ -6154,7 +6244,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_types_errors",
-      "community": 98,
+      "community": 0,
       "norm_label": "errors.ts"
     },
     {
@@ -6164,7 +6254,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "frontend_src_types_errors_errorcode",
-      "community": 98,
+      "community": 0,
       "norm_label": "errorcode"
     },
     {
@@ -6174,7 +6264,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_src_types_errors_apperror",
-      "community": 30,
+      "community": 0,
       "norm_label": "apperror"
     },
     {
@@ -6184,7 +6274,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "frontend_src_types_errors_error_messages",
-      "community": 98,
+      "community": 0,
       "norm_label": "error_messages"
     },
     {
@@ -6194,7 +6284,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "frontend_src_types_errors_detailed_error_messages",
-      "community": 98,
+      "community": 0,
       "norm_label": "detailed_error_messages"
     },
     {
@@ -6204,7 +6294,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "frontend_src_types_errors_isrecoverableerror",
-      "community": 98,
+      "community": 0,
       "norm_label": "isrecoverableerror()"
     },
     {
@@ -6364,7 +6454,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_utils_tests_citationparser_test",
-      "community": 18,
+      "community": 68,
       "norm_label": "citationparser.test.ts"
     },
     {
@@ -6394,7 +6484,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_utils_tests_sseparser_test",
-      "community": 68,
+      "community": 0,
       "norm_label": "sseparser.test.ts"
     },
     {
@@ -6404,7 +6494,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_utils_citationparser",
-      "community": 18,
+      "community": 68,
       "norm_label": "citationparser.ts"
     },
     {
@@ -6414,7 +6504,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "frontend_src_utils_citationparser_indexedcitation",
-      "community": 18,
+      "community": 68,
       "norm_label": "indexedcitation"
     },
     {
@@ -6424,7 +6514,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "frontend_src_utils_citationparser_parsedcontent",
-      "community": 18,
+      "community": 68,
       "norm_label": "parsedcontent"
     },
     {
@@ -6434,7 +6524,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "frontend_src_utils_citationparser_citation_patterns",
-      "community": 18,
+      "community": 68,
       "norm_label": "citation_patterns"
     },
     {
@@ -6444,7 +6534,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "frontend_src_utils_citationparser_getannotationkey",
-      "community": 18,
+      "community": 68,
       "norm_label": "getannotationkey()"
     },
     {
@@ -6454,7 +6544,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "frontend_src_utils_citationparser_parsecontentwithcitations",
-      "community": 18,
+      "community": 68,
       "norm_label": "parsecontentwithcitations()"
     },
     {
@@ -6464,7 +6554,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_utils_errorhandler",
-      "community": 98,
+      "community": 0,
       "norm_label": "errorhandler.ts"
     },
     {
@@ -6474,7 +6564,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "frontend_src_utils_errorhandler_getuserfriendlymessage",
-      "community": 98,
+      "community": 0,
       "norm_label": "getuserfriendlymessage()"
     },
     {
@@ -6494,7 +6584,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "frontend_src_utils_errorhandler_geterrorcodefromresponse",
-      "community": 98,
+      "community": 0,
       "norm_label": "geterrorcodefromresponse()"
     },
     {
@@ -6504,7 +6594,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "frontend_src_utils_errorhandler_parseerrorfromresponse",
-      "community": 98,
+      "community": 0,
       "norm_label": "parseerrorfromresponse()"
     },
     {
@@ -6524,7 +6614,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "frontend_src_utils_errorhandler_istokenexpirederror",
-      "community": 98,
+      "community": 0,
       "norm_label": "istokenexpirederror()"
     },
     {
@@ -6534,7 +6624,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "frontend_src_utils_errorhandler_isnetworkerror",
-      "community": 98,
+      "community": 0,
       "norm_label": "isnetworkerror()"
     },
     {
@@ -6544,7 +6634,7 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "frontend_src_utils_errorhandler_retrywithbackoff",
-      "community": 98,
+      "community": 0,
       "norm_label": "retrywithbackoff()"
     },
     {
@@ -6554,7 +6644,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "docref_rfc_7807",
-      "community": 98,
+      "community": 0,
       "norm_label": "rfc-7807"
     },
     {
@@ -6734,7 +6824,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser",
-      "community": 68,
+      "community": 0,
       "norm_label": "sseparser.ts"
     },
     {
@@ -6744,7 +6834,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_sseeventtype",
-      "community": 68,
+      "community": 0,
       "norm_label": "sseeventtype"
     },
     {
@@ -6754,7 +6844,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_sseevent",
-      "community": 68,
+      "community": 0,
       "norm_label": "sseevent"
     },
     {
@@ -6764,7 +6854,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_sseconversationidevent",
-      "community": 68,
+      "community": 0,
       "norm_label": "sseconversationidevent"
     },
     {
@@ -6774,7 +6864,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_ssechunkevent",
-      "community": 68,
+      "community": 0,
       "norm_label": "ssechunkevent"
     },
     {
@@ -6784,7 +6874,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_sseannotationsevent",
-      "community": 68,
+      "community": 0,
       "norm_label": "sseannotationsevent"
     },
     {
@@ -6794,7 +6884,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_sseusageevent",
-      "community": 68,
+      "community": 0,
       "norm_label": "sseusageevent"
     },
     {
@@ -6804,7 +6894,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_ssedoneevent",
-      "community": 68,
+      "community": 0,
       "norm_label": "ssedoneevent"
     },
     {
@@ -6814,7 +6904,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_sseerrorevent",
-      "community": 68,
+      "community": 0,
       "norm_label": "sseerrorevent"
     },
     {
@@ -6824,7 +6914,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_parsesseline",
-      "community": 68,
+      "community": 0,
       "norm_label": "parsesseline()"
     },
     {
@@ -6834,7 +6924,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "frontend_src_utils_sseparser_splitssebuffer",
-      "community": 68,
+      "community": 0,
       "norm_label": "splitssebuffer()"
     },
     {
@@ -14018,6 +14108,26 @@
       "norm_label": "quick reference"
     },
     {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents",
+      "community": 96,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "Project instructions",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_project_instructions",
+      "community": 96,
+      "norm_label": "project instructions"
+    },
+    {
       "label": "ARCHITECTURE-FLOW.md",
       "file_type": "document",
       "source_file": "ARCHITECTURE-FLOW.md",
@@ -14881,17 +14991,27 @@
       "label": "Android",
       "file_type": "document",
       "source_file": "automation/README.md",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "automation_readme_android",
       "community": 99,
       "norm_label": "android"
     },
     {
+      "label": "Recursos DOM",
+      "file_type": "document",
+      "source_file": "automation/README.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "automation_readme_recursos_dom",
+      "community": 99,
+      "norm_label": "recursos dom"
+    },
+    {
       "label": "Exemplos no chat",
       "file_type": "document",
       "source_file": "automation/README.md",
-      "source_location": "L30",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "automation_readme_exemplos_no_chat",
       "community": 99,
@@ -15733,7 +15853,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L49",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "automation_bridge",
+      "target": "automation_bridge_action_timeout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L63",
       "weight": 1.0,
       "source": "automation_bridge",
       "target": "automation_bridge_adb_open",
@@ -15743,7 +15873,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L70",
+      "source_location": "L84",
       "weight": 1.0,
       "source": "automation_bridge",
       "target": "automation_bridge_appium_driver",
@@ -15753,7 +15883,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L87",
+      "source_location": "L101",
       "weight": 1.0,
       "source": "automation_bridge",
       "target": "automation_bridge_dom_driver",
@@ -15763,7 +15893,27 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L91",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "automation_bridge",
+      "target": "automation_bridge_element_action",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "automation_bridge",
+      "target": "automation_bridge_element_snapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L201",
       "weight": 1.0,
       "source": "automation_bridge",
       "target": "automation_bridge_execute",
@@ -15773,7 +15923,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L145",
+      "source_location": "L288",
       "weight": 1.0,
       "source": "automation_bridge",
       "target": "automation_bridge_handler",
@@ -15783,7 +15933,27 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L35",
+      "source_location": "L187",
+      "weight": 1.0,
+      "source": "automation_bridge",
+      "target": "automation_bridge_record_execution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "automation_bridge",
+      "target": "automation_bridge_safe_log_parameters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L49",
       "weight": 1.0,
       "source": "automation_bridge",
       "target": "automation_bridge_safe_path",
@@ -15793,7 +15963,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L56",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "automation_bridge",
+      "target": "automation_bridge_selector_locator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L70",
       "weight": 1.0,
       "source": "automation_bridge",
       "target": "automation_bridge_selenium_driver",
@@ -15803,10 +15983,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L42",
+      "source_location": "L56",
       "weight": 1.0,
       "source": "automation_bridge",
       "target": "automation_bridge_valid_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "automation_bridge",
+      "target": "automation_bridge_wait_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "automation_bridge",
+      "target": "datetime",
       "confidence_score": 1.0
     },
     {
@@ -15824,7 +16025,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L125",
+      "source_location": "L268",
       "weight": 1.0,
       "source": "automation_bridge_execute",
       "target": "automation_bridge_safe_path",
@@ -15835,7 +16036,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L35",
+      "source_location": "L49",
       "weight": 1.0,
       "source": "automation_bridge_safe_path",
       "target": "path",
@@ -15846,7 +16047,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L93",
+      "source_location": "L203",
       "weight": 1.0,
       "source": "automation_bridge_execute",
       "target": "automation_bridge_valid_url",
@@ -15857,7 +16058,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L95",
+      "source_location": "L205",
       "weight": 1.0,
       "source": "automation_bridge_execute",
       "target": "automation_bridge_adb_open",
@@ -15868,7 +16069,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L88",
+      "source_location": "L102",
       "weight": 1.0,
       "source": "automation_bridge_dom_driver",
       "target": "automation_bridge_selenium_driver",
@@ -15879,7 +16080,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L88",
+      "source_location": "L102",
       "weight": 1.0,
       "source": "automation_bridge_dom_driver",
       "target": "automation_bridge_appium_driver",
@@ -15890,7 +16091,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L98",
+      "source_location": "L208",
       "weight": 1.0,
       "source": "automation_bridge_execute",
       "target": "automation_bridge_dom_driver",
@@ -15901,7 +16102,117 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L199",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "automation_bridge_wait_for",
+      "target": "automation_bridge_dom_driver",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "automation_bridge_wait_for",
+      "target": "automation_bridge_action_timeout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "automation_bridge_execute",
+      "target": "automation_bridge_selector_locator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "automation_bridge_wait_for",
+      "target": "automation_bridge_selector_locator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "automation_bridge_element_action",
+      "target": "automation_bridge_wait_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "automation_bridge_execute",
+      "target": "automation_bridge_wait_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L225",
+      "weight": 1.0,
+      "source": "automation_bridge_execute",
+      "target": "automation_bridge_element_action",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "automation_bridge_execute",
+      "target": "automation_bridge_element_snapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L192",
+      "weight": 1.0,
+      "source": "automation_bridge_record_execution",
+      "target": "automation_bridge_safe_log_parameters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L360",
+      "weight": 1.0,
+      "source": "automation_bridge_handler_do_post",
+      "target": "automation_bridge_record_execution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/bridge.py",
+      "source_location": "L359",
       "weight": 1.0,
       "source": "automation_bridge_handler_do_post",
       "target": "automation_bridge_execute",
@@ -15911,7 +16222,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L167",
+      "source_location": "L310",
       "weight": 1.0,
       "source": "automation_bridge_handler",
       "target": "automation_bridge_handler_authorized",
@@ -15921,7 +16232,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L149",
+      "source_location": "L292",
       "weight": 1.0,
       "source": "automation_bridge_handler",
       "target": "automation_bridge_handler_cors",
@@ -15931,7 +16242,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L179",
+      "source_location": "L322",
       "weight": 1.0,
       "source": "automation_bridge_handler",
       "target": "automation_bridge_handler_do_get",
@@ -15941,7 +16252,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L171",
+      "source_location": "L314",
       "weight": 1.0,
       "source": "automation_bridge_handler",
       "target": "automation_bridge_handler_do_options",
@@ -15951,7 +16262,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L185",
+      "source_location": "L338",
       "weight": 1.0,
       "source": "automation_bridge_handler",
       "target": "automation_bridge_handler_do_post",
@@ -15961,7 +16272,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L146",
+      "source_location": "L289",
       "weight": 1.0,
       "source": "automation_bridge_handler",
       "target": "automation_bridge_handler_log_message",
@@ -15971,7 +16282,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L158",
+      "source_location": "L301",
       "weight": 1.0,
       "source": "automation_bridge_handler",
       "target": "automation_bridge_handler_reply",
@@ -15981,7 +16292,7 @@
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L145",
+      "source_location": "L288",
       "weight": 1.0,
       "source": "automation_bridge_handler",
       "target": "basehttprequesthandler",
@@ -15992,7 +16303,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L176",
+      "source_location": "L319",
       "weight": 1.0,
       "source": "automation_bridge_handler_do_options",
       "target": "automation_bridge_handler_cors",
@@ -16003,7 +16314,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L161",
+      "source_location": "L304",
       "weight": 1.0,
       "source": "automation_bridge_handler_reply",
       "target": "automation_bridge_handler_cors",
@@ -16014,7 +16325,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L181",
+      "source_location": "L325",
       "weight": 1.0,
       "source": "automation_bridge_handler_do_get",
       "target": "automation_bridge_handler_reply",
@@ -16025,7 +16336,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L173",
+      "source_location": "L316",
       "weight": 1.0,
       "source": "automation_bridge_handler_do_options",
       "target": "automation_bridge_handler_reply",
@@ -16036,7 +16347,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L187",
+      "source_location": "L340",
       "weight": 1.0,
       "source": "automation_bridge_handler_do_post",
       "target": "automation_bridge_handler_reply",
@@ -16047,7 +16358,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L180",
+      "source_location": "L324",
       "weight": 1.0,
       "source": "automation_bridge_handler_do_get",
       "target": "automation_bridge_handler_authorized",
@@ -16058,7 +16369,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L172",
+      "source_location": "L315",
       "weight": 1.0,
       "source": "automation_bridge_handler_do_options",
       "target": "automation_bridge_handler_authorized",
@@ -16069,7 +16380,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "automation/bridge.py",
-      "source_location": "L186",
+      "source_location": "L339",
       "weight": 1.0,
       "source": "automation_bridge_handler_do_post",
       "target": "automation_bridge_handler_authorized",
@@ -23620,7 +23931,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L91",
+      "source_location": "L105",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel",
       "target": "frontend_src_components_core_settingspanel_formatbytes",
@@ -23630,7 +23941,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L103",
+      "source_location": "L117",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel",
       "target": "frontend_src_components_core_settingspanel_settingspanel",
@@ -23640,7 +23951,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L32",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel",
       "target": "frontend_src_components_core_settingspanel_settingspanelprops",
@@ -23650,7 +23961,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L38",
+      "source_location": "L40",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel",
       "target": "frontend_src_components_core_settingspanel_usestyles",
@@ -23697,6 +24008,17 @@
       "source_location": "L24",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel",
+      "target": "frontend_src_services_automationservice_automationlogentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/core/SettingsPanel.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "frontend_src_components_core_settingspanel",
       "target": "frontend_src_services_automationservice_checkautomationbridge",
       "confidence_score": 1.0
     },
@@ -23709,6 +24031,17 @@
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel",
       "target": "frontend_src_services_automationservice_getautomationbridgeurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/core/SettingsPanel.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "frontend_src_components_core_settingspanel",
+      "target": "frontend_src_services_automationservice_getautomationlogs",
       "confidence_score": 1.0
     },
     {
@@ -23771,7 +24104,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L35",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel_settingspanelprops",
       "target": "frontend_src_services_chatservice_chatservice",
@@ -23782,7 +24115,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L104",
+      "source_location": "L118",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel_settingspanel",
       "target": "frontend_src_components_core_settingspanel_usestyles",
@@ -23793,7 +24126,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L242",
+      "source_location": "L283",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel_settingspanel",
       "target": "frontend_src_components_core_settingspanel_formatbytes",
@@ -23805,7 +24138,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L165",
+      "source_location": "L181",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel_settingspanel",
       "target": "frontend_src_services_automationservice_checkautomationbridge"
@@ -23816,10 +24149,21 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L111",
+      "source_location": "L125",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel_settingspanel",
       "target": "frontend_src_services_automationservice_getautomationbridgeurl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/core/SettingsPanel.tsx",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "frontend_src_components_core_settingspanel_settingspanel",
+      "target": "frontend_src_services_automationservice_getautomationlogs"
     },
     {
       "relation": "indirect_call",
@@ -23827,7 +24171,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L112",
+      "source_location": "L126",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel_settingspanel",
       "target": "frontend_src_services_automationservice_getautomationtoken"
@@ -23838,7 +24182,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L160",
+      "source_location": "L176",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel_settingspanel",
       "target": "frontend_src_services_automationservice_setautomationbridgeurl"
@@ -23849,7 +24193,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/core/SettingsPanel.tsx",
-      "source_location": "L161",
+      "source_location": "L177",
       "weight": 1.0,
       "source": "frontend_src_components_core_settingspanel_settingspanel",
       "target": "frontend_src_services_automationservice_setautomationtoken"
@@ -24812,7 +25156,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L11",
+      "source_location": "L16",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_automationintent",
@@ -24822,7 +25166,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L17",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "frontend_src_services_automationservice",
+      "target": "frontend_src_services_automationservice_automationlogentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/automationService.ts",
+      "source_location": "L22",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_automationresult",
@@ -24832,7 +25186,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L97",
+      "source_location": "L156",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_checkautomationbridge",
@@ -24842,7 +25196,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L103",
+      "source_location": "L169",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_executeautomation",
@@ -24852,7 +25206,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L80",
+      "source_location": "L127",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_getautomationbridgeurl",
@@ -24862,7 +25216,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L82",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "frontend_src_services_automationservice",
+      "target": "frontend_src_services_automationservice_getautomationlogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/automationService.ts",
+      "source_location": "L129",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_getautomationtoken",
@@ -24872,7 +25236,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L28",
+      "source_location": "L44",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_normalizeurl",
@@ -24882,7 +25246,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L33",
+      "source_location": "L49",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_parseautomationintent",
@@ -24892,7 +25256,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L85",
+      "source_location": "L132",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_request",
@@ -24902,7 +25266,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L81",
+      "source_location": "L128",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_setautomationbridgeurl",
@@ -24912,7 +25276,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L83",
+      "source_location": "L130",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice",
       "target": "frontend_src_services_automationservice_setautomationtoken",
@@ -24923,7 +25287,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L37",
+      "source_location": "L53",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice_parseautomationintent",
       "target": "frontend_src_services_automationservice_normalizeurl",
@@ -24934,7 +25298,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L87",
+      "source_location": "L137",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice_request",
       "target": "frontend_src_services_automationservice_getautomationbridgeurl",
@@ -24945,7 +25309,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L86",
+      "source_location": "L133",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice_request",
       "target": "frontend_src_services_automationservice_getautomationtoken",
@@ -24956,7 +25320,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L98",
+      "source_location": "L157",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice_checkautomationbridge",
       "target": "frontend_src_services_automationservice_request",
@@ -24967,9 +25331,20 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/automationService.ts",
-      "source_location": "L104",
+      "source_location": "L170",
       "weight": 1.0,
       "source": "frontend_src_services_automationservice_executeautomation",
+      "target": "frontend_src_services_automationservice_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/automationService.ts",
+      "source_location": "L163",
+      "weight": 1.0,
+      "source": "frontend_src_services_automationservice_getautomationlogs",
       "target": "frontend_src_services_automationservice_request",
       "confidence_score": 1.0
     },
@@ -34289,6 +34664,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "agents",
+      "target": "agents_project_instructions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "ARCHITECTURE-FLOW.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -35130,7 +35515,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/README.md",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "automation_readme_automa\u00e7\u00e3o_local_hatclaw",
       "target": "automation_readme_android",
@@ -35140,10 +35525,20 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "automation/README.md",
-      "source_location": "L30",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "automation_readme_automa\u00e7\u00e3o_local_hatclaw",
       "target": "automation_readme_exemplos_no_chat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "automation/README.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "automation_readme_automa\u00e7\u00e3o_local_hatclaw",
+      "target": "automation_readme_recursos_dom",
       "confidence_score": 1.0
     },
     {
@@ -35938,5 +36333,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4b38556c7490903541a7a1a87512f1aea30d36aa"
+  "built_at_commit": "366ab9bf2b83046affc1b6f9ac89020017e2471b"
 }

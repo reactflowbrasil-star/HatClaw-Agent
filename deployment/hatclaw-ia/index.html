@@ -25,9 +25,114 @@
         padding: 0;
         border: 0;
       }
+
+      .intro {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.055), transparent 38%),
+          #000;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 700ms ease, visibility 700ms ease;
+      }
+
+      .intro::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 3px;
+        background: linear-gradient(90deg, #fff, #777);
+        transform-origin: left center;
+        animation: intro-progress 10s linear forwards;
+      }
+
+      .intro.is-hiding {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .intro-logo {
+        width: min(82vw, 720px);
+        max-height: 76vh;
+        object-fit: contain;
+        filter: drop-shadow(0 20px 45px rgba(255, 255, 255, 0.13));
+        opacity: 0;
+        transform: translateY(28px) scale(0.88);
+        animation:
+          logo-enter 1.8s cubic-bezier(0.16, 1, 0.3, 1) 180ms forwards,
+          logo-float 4s ease-in-out 2s infinite;
+      }
+
+      .skip-intro {
+        position: absolute;
+        right: max(22px, env(safe-area-inset-right));
+        bottom: max(24px, env(safe-area-inset-bottom));
+        padding: 11px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        border-radius: 999px;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+        font: 500 14px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        opacity: 0;
+        backdrop-filter: blur(8px);
+        animation: button-enter 700ms ease 1.1s forwards;
+        transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+      }
+
+      .skip-intro:hover,
+      .skip-intro:focus-visible {
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.16);
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      @keyframes logo-enter {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes logo-float {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-8px) scale(1.012); }
+      }
+
+      @keyframes button-enter {
+        to { opacity: 1; }
+      }
+
+      @keyframes intro-progress {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .intro-logo,
+        .skip-intro,
+        .intro::after {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
     </style>
   </head>
   <body>
+    <div class="intro" id="intro" role="dialog" aria-label="Introdução HatClaw">
+      <img class="intro-logo" src="hatclaw_logo.png" alt="HatClaw" />
+      <button class="skip-intro" id="skipIntro" type="button">Pular intro</button>
+    </div>
+
     <iframe
       src="https://ca-web-aul4uukqnburs.bravehill-5aa61ebc.eastus2.azurecontainerapps.io/"
       title="HatClaw - CoderMax"
@@ -35,5 +140,23 @@
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
     ></iframe>
+
+    <script>
+      (() => {
+        const intro = document.getElementById('intro');
+        const skipButton = document.getElementById('skipIntro');
+        let finished = false;
+
+        const finishIntro = () => {
+          if (finished) return;
+          finished = true;
+          intro.classList.add('is-hiding');
+          window.setTimeout(() => intro.remove(), 750);
+        };
+
+        skipButton.addEventListener('click', finishIntro);
+        window.setTimeout(finishIntro, 10000);
+      })();
+    </script>
   </body>
 </html>
