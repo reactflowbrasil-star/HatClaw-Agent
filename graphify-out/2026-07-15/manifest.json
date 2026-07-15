@@ -370,8 +370,8 @@
     "semantic_hash": "2c518cddb827fdab2112d79efcaadbb4"
   },
   "frontend/src/components/core/SettingsPanel.tsx": {
-    "mtime": 1784139357.6502361,
-    "ast_hash": "e4f7a5da6c256fb03e384d80ff065e49",
+    "mtime": 1784141614.54123,
+    "ast_hash": "a21cbfa55f37c863371ad506698673c0",
     "semantic_hash": ""
   },
   "frontend/src/components/core/ThemePicker.tsx": {
@@ -770,8 +770,8 @@
     "semantic_hash": ""
   },
   "automation/bridge.py": {
-    "mtime": 1784139282.9454775,
-    "ast_hash": "60bb9abf2fb669c276ef361543bae04d",
+    "mtime": 1784141614.5402327,
+    "ast_hash": "4063a64572c8bf5a9c37c93b4ecc9fb2",
     "semantic_hash": ""
   },
   "automation/start-bridge.ps1": {
@@ -780,13 +780,13 @@
     "semantic_hash": ""
   },
   "frontend/src/services/__tests__/automationService.test.ts": {
-    "mtime": 1784139155.220763,
-    "ast_hash": "3e3bf86c6be51c7f391351b194354fce",
+    "mtime": 1784141614.542231,
+    "ast_hash": "a7ba848deb6e7bf01025cbd973dcb837",
     "semantic_hash": ""
   },
   "frontend/src/services/automationService.ts": {
-    "mtime": 1784139155.220763,
-    "ast_hash": "ff5b11f7f7d83acfeede87165bb7ae8f",
+    "mtime": 1784141614.543231,
+    "ast_hash": "b93c03db6bd00e5fbcfcd5a05a69d9bc",
     "semantic_hash": ""
   },
   "automation/.test-sandbox/teste.txt": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "automation/README.md": {
-    "mtime": 1784139282.9464788,
-    "ast_hash": "5d50a5918cac5d43e17b7f9173e8ed6b",
+    "mtime": 1784141614.539229,
+    "ast_hash": "481b084e0e5900b31e36b928de589ddf",
     "semantic_hash": ""
   },
   "automation/requirements.txt": {
@@ -805,8 +805,18 @@
     "semantic_hash": ""
   },
   "deployment/hatclaw-ia/index.html": {
-    "mtime": 1784141439.5985446,
-    "ast_hash": "e60775036e2c67b5724d86034bbc29a4",
+    "mtime": 1784141847.330564,
+    "ast_hash": "682164e839054e32f5a3017d97250243",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1784141614.53823,
+    "ast_hash": "bb1a4be1cd83bdcd5b08a98ae09d484a",
+    "semantic_hash": ""
+  },
+  "deployment/hatclaw-ia/hatclaw_logo.png": {
+    "mtime": 1784141698.2731206,
+    "ast_hash": "89b2ea638cf8745c9e7280c93b748442",
     "semantic_hash": ""
   }
 }

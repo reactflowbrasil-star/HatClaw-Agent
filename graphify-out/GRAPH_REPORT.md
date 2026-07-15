@@ -1,16 +1,16 @@
 # Graph Report - foundry-agent-webapp-main  (2026-07-15)
 
 ## Corpus Check
-- 155 files · ~85,149 words
+- 156 files · ~91,198 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1526 nodes · 1942 edges · 109 communities (103 shown, 6 thin omitted)
+- 1528 nodes · 1943 edges · 108 communities (101 shown, 7 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 20 edges (avg confidence: 0.55)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `366ab9bf`
+- Built from commit: `704847f9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -92,7 +92,6 @@
 - outputs
 - variables
 - $fxv#0
-- ConversationSidebar.tsx
 - Commit Message Format
 - description
 - _generator
@@ -120,25 +119,25 @@
 10. `Deploying to Azure` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `SettingsPanelProps` --references--> `ChatService`  [EXTRACTED]
-  frontend/src/components/core/SettingsPanel.tsx → frontend/src/services/chatService.ts
 - `useAuth()` --indirect_call--> `request()`  [INFERRED]
   frontend/src/hooks/useAuth.ts → frontend/src/services/automationService.ts
 - `AgentFrameworkService` --references--> `AgentMetadataResponse`  [EXTRACTED]
   backend/WebApp.Api/Services/AgentFrameworkService.cs → backend/WebApp.Api/Models/AgentMetadata.cs
-- `ChatInterfaceProps` --references--> `IChatItem`  [EXTRACTED]
-  frontend/src/components/ChatInterface.tsx → frontend/src/types/chat.ts
 - `ConversationSidebarProps` --references--> `ConversationSummary`  [EXTRACTED]
   frontend/src/components/ConversationSidebar.tsx → frontend/src/types/appState.ts
+- `AssistantMessageProps` --references--> `IChatItem`  [EXTRACTED]
+  frontend/src/components/chat/AssistantMessage.tsx → frontend/src/types/chat.ts
+- `AssistantMessageComponent()` --calls--> `parseContentWithCitations()`  [EXTRACTED]
+  frontend/src/components/chat/AssistantMessage.tsx → frontend/src/utils/citationParser.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (109 total, 6 thin omitted)
+## Communities (108 total, 7 thin omitted)
 
 ### Community 0 - "chatService.ts"
-Cohesion: 0.06
-Nodes (45): RFC-7807, ChatInterfaceProps, ConversationSidebar(), ConversationSidebarProps, formatDate(), useStyles, AppContext, AppContextValue (+37 more)
+Cohesion: 0.09
+Nodes (27): RFC-7807, SettingsPanelProps, ChatService, DETAILED_ERROR_MESSAGES, ERROR_MESSAGES, ErrorCode, isAppError(), isRecoverableError() (+19 more)
 
 ### Community 1 - "parameters"
 Cohesion: 0.04
@@ -149,8 +148,8 @@ Cohesion: 0.04
 Nodes (46): eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh, devDependencies, eslint, @eslint/js, eslint-plugin-react-hooks (+38 more)
 
 ### Community 3 - "AgentChat.tsx"
-Cohesion: 0.10
-Nodes (32): AgentChat(), AgentChatProps, formatBytes(), SettingsPanel(), SettingsPanelProps, useStyles, loginRequest, msalConfig (+24 more)
+Cohesion: 0.06
+Nodes (45): AgentChat(), AgentChatProps, ConversationSidebar(), ConversationSidebarProps, formatDate(), useStyles, DefaultErrorFallback(), ErrorBoundary (+37 more)
 
 ### Community 4 - "dependencies"
 Cohesion: 0.05
@@ -170,7 +169,7 @@ Nodes (33): type, value, type, value, type, value, contentVersion, appContainerA
 
 ### Community 8 - "fileAttachments.ts"
 Cohesion: 0.12
-Nodes (26): ChatInput(), ChatInputProps, createLongTextAttachment(), focusInput(), FilePreview(), FilePreviewProps, TEXT_PREVIEW_TYPES, useStyles (+18 more)
+Nodes (25): ChatInput(), ChatInputProps, createLongTextAttachment(), focusInput(), FilePreview(), FilePreviewProps, TEXT_PREVIEW_TYPES, useStyles (+17 more)
 
 ### Community 9 - "compilerOptions"
 Cohesion: 0.06
@@ -181,8 +180,8 @@ Cohesion: 0.20
 Nodes (9): contentVersion, imports, microsoftGraphV1, languageVersion, provider, version, $schema, variables (+1 more)
 
 ### Community 11 - "ThemeContext.tsx"
-Cohesion: 0.14
-Nodes (18): Wave, Waves(), WavesProps, IDropdownItem, ThemePicker(), ThemeProvider(), brandColors, darkTheme (+10 more)
+Cohesion: 0.16
+Nodes (16): Wave, Waves(), WavesProps, IDropdownItem, ThemePicker(), ThemeProvider(), brandColors, darkTheme (+8 more)
 
 ### Community 12 - "WebApp.ServiceDefaults"
 Cohesion: 0.09
@@ -253,12 +252,12 @@ Cohesion: 0.27
 Nodes (4): Extensions, Microsoft.Extensions.Hosting, IHostApplicationBuilder, WebApplication
 
 ### Community 30 - "AssistantMessage.tsx"
-Cohesion: 0.17
-Nodes (12): DropZone(), DropZoneProps, UserMessage, ChatInterface(), selectBrazilianFemaleVoice(), ErrorMessage(), ErrorMessageProps, useStyles (+4 more)
+Cohesion: 0.11
+Nodes (19): AssistantMessage, DropZone(), DropZoneProps, McpApprovalCard(), McpApprovalCardProps, defaultStarterPrompts, IStarterMessageProps, StarterMessages() (+11 more)
 
 ### Community 31 - "StarterMessages.tsx"
-Cohesion: 0.24
-Nodes (7): McpApprovalCard(), McpApprovalCardProps, defaultStarterPrompts, IStarterMessageProps, StarterMessages(), AgentIcon(), AgentIconProps
+Cohesion: 0.17
+Nodes (17): AssistantMessageProps, UserMessageProps, ChatInterfaceProps, AppContext, AppContextValue, AppProvider(), devLogger, logStateChange() (+9 more)
 
 ### Community 32 - "ConversationModels.cs"
 Cohesion: 0.25
@@ -325,12 +324,8 @@ Cohesion: 0.11
 Nodes (17): .agent.md Quality Gates, ARCHITECTURE-FLOW.md, Architecture Maintenance, Audit Checklists, Constraints, Content Quality Rules, copilot-instructions.md, Cross-Document Consistency (+9 more)
 
 ### Community 68 - "ChatInterface.tsx"
-Cohesion: 0.22
-Nodes (9): CitationMarker, CitationMarkerProps, MarkdownProps, IAnnotation, CITATION_PATTERNS, getAnnotationKey(), IndexedCitation, parseContentWithCitations() (+1 more)
-
-### Community 69 - "AppContext.tsx"
-Cohesion: 0.24
-Nodes (5): DefaultErrorFallback(), ErrorBoundary, ErrorBoundaryProps, ErrorBoundaryState, useStyles
+Cohesion: 0.21
+Nodes (10): CitationMarker, CitationMarkerProps, MarkdownProps, IAnnotation, IMcpApprovalRequest, CITATION_PATTERNS, getAnnotationKey(), IndexedCitation (+2 more)
 
 ### Community 70 - "Syncing MCP Servers"
 Cohesion: 0.12
@@ -381,8 +376,8 @@ Cohesion: 0.15
 Nodes (12): ACR Pull Pattern, Bicep Coding Standards, Container Apps, Managed Identity, Naming Convention, Outputs, Parameters, Project-Specific: Container App Configuration (+4 more)
 
 ### Community 82 - "ErrorBoundary.tsx"
-Cohesion: 0.20
-Nodes (12): AssistantMessage, AssistantMessageComponent(), AssistantMessageProps, getToolUseLabel(), MessageActions, MessageActionsProps, formatFileSize(), UserMessageComponent() (+4 more)
+Cohesion: 0.18
+Nodes (12): AssistantMessageComponent(), getToolUseLabel(), MessageActions, MessageActionsProps, UsageInfo(), UsageInfoProps, formatFileSize(), UserMessage (+4 more)
 
 ### Community 83 - "sp"
 Cohesion: 0.18
@@ -427,10 +422,6 @@ Nodes (7): app-name, azd-env-name, variables, abbrs, appTags, resourceToken, tag
 ### Community 93 - "$fxv#0"
 Cohesion: 0.29
 Nodes (7): appContainerApps, appManagedEnvironments, containerRegistryRegistries, managedIdentityUserAssignedIdentities, operationalInsightsWorkspaces, resourcesResourceGroups, $fxv#0
-
-### Community 94 - "ConversationSidebar.tsx"
-Cohesion: 0.31
-Nodes (5): UsageInfo(), UsageInfoProps, IAgentMetadata, IMcpApprovalRequest, IUsageInfo
 
 ### Community 95 - "Commit Message Format"
 Cohesion: 0.33
@@ -477,9 +468,9 @@ Cohesion: 0.67
 Nodes (3): WEB_IDENTITY_PRINCIPAL_ID, type, value
 
 ## Knowledge Gaps
-- **768 isolated node(s):** `net10.0`, `System.Security.Cryptography.Xml (10.0.6)`, `MSTest.Sdk/3.10.2`, `ConversationInfo`, `ConversationListResponse` (+763 more)
+- **769 isolated node(s):** `net10.0`, `System.Security.Cryptography.Xml (10.0.6)`, `MSTest.Sdk/3.10.2`, `ConversationInfo`, `ConversationListResponse` (+764 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -488,13 +479,13 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Why does `AgentFrameworkService` connect `AgentFrameworkService` to `.DownloadContainerFileAsync`, `.BuildUserMessageAsync`, `.GetLastUsage`, `.StreamMessageAsync`, `WebApp.Api.Models`, `.GetProjectClient`?**
   _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **Why does `ChatService` connect `chatService.ts` to `AgentChat.tsx`, `StarterMessages.tsx`?**
+  _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `HatClaw local automation bridge.  Runs only on loopback and exposes a small al`, `net10.0`, `System.Security.Cryptography.Xml (10.0.6)` to the rest of the system?**
-  _769 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _770 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `chatService.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.061754385964912284 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0851063829787234 - nodes in this community are weakly interconnected._
 - **Should `parameters` be split into smaller, more focused modules?**
   _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
-- **Should `AgentChat.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.10121951219512196 - nodes in this community are weakly interconnected._

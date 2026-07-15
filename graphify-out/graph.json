@@ -2808,6 +2808,26 @@
       "norm_label": "webapp.sln"
     },
     {
+      "label": "sw.js",
+      "file_type": "code",
+      "source_file": "deployment/hatclaw-ia/sw.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "deployment_hatclaw_ia_sw",
+      "community": 69,
+      "norm_label": "sw.js"
+    },
+    {
+      "label": "APP_SHELL",
+      "file_type": "code",
+      "source_file": "deployment/hatclaw-ia/sw.js",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "deployment_hatclaw_ia_sw_app_shell",
+      "community": 69,
+      "norm_label": "app_shell"
+    },
+    {
       "label": "Get-AIFoundryAgents.ps1",
       "file_type": "code",
       "source_file": "deployment/hooks/modules/Get-AIFoundryAgents.ps1",
@@ -3974,7 +3994,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_app",
-      "community": 94,
+      "community": 3,
       "norm_label": "app.tsx"
     },
     {
@@ -3984,7 +4004,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "frontend_src_app_app",
-      "community": 94,
+      "community": 3,
       "norm_label": "app()"
     },
     {
@@ -4044,7 +4064,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "frontend_src_components_chatinterface_chatinterfaceprops",
-      "community": 0,
+      "community": 31,
       "norm_label": "chatinterfaceprops"
     },
     {
@@ -4064,7 +4084,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar",
-      "community": 0,
+      "community": 3,
       "norm_label": "conversationsidebar.tsx"
     },
     {
@@ -4074,7 +4094,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar_conversationsidebarprops",
-      "community": 0,
+      "community": 3,
       "norm_label": "conversationsidebarprops"
     },
     {
@@ -4084,7 +4104,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar_usestyles",
-      "community": 0,
+      "community": 3,
       "norm_label": "usestyles"
     },
     {
@@ -4094,7 +4114,7 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar_formatdate",
-      "community": 0,
+      "community": 3,
       "norm_label": "formatdate()"
     },
     {
@@ -4104,7 +4124,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "frontend_src_components_conversationsidebar_conversationsidebar",
-      "community": 0,
+      "community": 3,
       "norm_label": "conversationsidebar()"
     },
     {
@@ -4194,7 +4214,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "frontend_src_components_chat_assistantmessage_assistantmessageprops",
-      "community": 82,
+      "community": 31,
       "norm_label": "assistantmessageprops"
     },
     {
@@ -4214,7 +4234,7 @@
       "source_location": "L252",
       "_origin": "ast",
       "id": "frontend_src_components_chat_assistantmessage_assistantmessage",
-      "community": 82,
+      "community": 30,
       "norm_label": "assistantmessage"
     },
     {
@@ -4394,7 +4414,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_chat_mcpapprovalcard",
-      "community": 31,
+      "community": 30,
       "norm_label": "mcpapprovalcard.tsx"
     },
     {
@@ -4404,7 +4424,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "frontend_src_components_chat_mcpapprovalcard_mcpapprovalcardprops",
-      "community": 31,
+      "community": 30,
       "norm_label": "mcpapprovalcardprops"
     },
     {
@@ -4414,7 +4434,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "frontend_src_components_chat_mcpapprovalcard_mcpapprovalcard",
-      "community": 31,
+      "community": 30,
       "norm_label": "mcpapprovalcard()"
     },
     {
@@ -4504,7 +4524,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_chat_startermessages",
-      "community": 31,
+      "community": 30,
       "norm_label": "startermessages.tsx"
     },
     {
@@ -4514,7 +4534,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "frontend_src_components_chat_startermessages_istartermessageprops",
-      "community": 31,
+      "community": 30,
       "norm_label": "istartermessageprops"
     },
     {
@@ -4524,7 +4544,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "frontend_src_components_chat_startermessages_defaultstarterprompts",
-      "community": 31,
+      "community": 30,
       "norm_label": "defaultstarterprompts"
     },
     {
@@ -4534,7 +4554,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "frontend_src_components_chat_startermessages_startermessages",
-      "community": 31,
+      "community": 30,
       "norm_label": "startermessages()"
     },
     {
@@ -4544,7 +4564,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_chat_usageinfo",
-      "community": 94,
+      "community": 82,
       "norm_label": "usageinfo.tsx"
     },
     {
@@ -4554,7 +4574,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "frontend_src_components_chat_usageinfo_usageinfoprops",
-      "community": 94,
+      "community": 82,
       "norm_label": "usageinfoprops"
     },
     {
@@ -4564,7 +4584,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "frontend_src_components_chat_usageinfo_usageinfo",
-      "community": 94,
+      "community": 82,
       "norm_label": "usageinfo()"
     },
     {
@@ -4584,7 +4604,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "frontend_src_components_chat_usermessage_usermessageprops",
-      "community": 82,
+      "community": 31,
       "norm_label": "usermessageprops"
     },
     {
@@ -4614,7 +4634,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "frontend_src_components_chat_usermessage_usermessage",
-      "community": 30,
+      "community": 82,
       "norm_label": "usermessage"
     },
     {
@@ -4654,7 +4674,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_core_agenticon",
-      "community": 31,
+      "community": 30,
       "norm_label": "agenticon.tsx"
     },
     {
@@ -4664,7 +4684,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "frontend_src_components_core_agenticon_agenticonprops",
-      "community": 31,
+      "community": 30,
       "norm_label": "agenticonprops"
     },
     {
@@ -4674,7 +4694,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "frontend_src_components_core_agenticon_agenticon",
-      "community": 31,
+      "community": 30,
       "norm_label": "agenticon()"
     },
     {
@@ -4714,7 +4734,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary",
-      "community": 69,
+      "community": 3,
       "norm_label": "errorboundary.tsx"
     },
     {
@@ -4724,7 +4744,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_usestyles",
-      "community": 69,
+      "community": 3,
       "norm_label": "usestyles"
     },
     {
@@ -4734,7 +4754,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundaryprops",
-      "community": 69,
+      "community": 3,
       "norm_label": "errorboundaryprops"
     },
     {
@@ -4744,7 +4764,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundarystate",
-      "community": 69,
+      "community": 3,
       "norm_label": "errorboundarystate"
     },
     {
@@ -4754,7 +4774,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary",
-      "community": 69,
+      "community": 3,
       "norm_label": "errorboundary"
     },
     {
@@ -4764,7 +4784,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_constructor",
-      "community": 69,
+      "community": 3,
       "norm_label": ".constructor()"
     },
     {
@@ -4774,7 +4794,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_getderivedstatefromerror",
-      "community": 69,
+      "community": 3,
       "norm_label": ".getderivedstatefromerror()"
     },
     {
@@ -4784,7 +4804,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_componentdidcatch",
-      "community": 69,
+      "community": 3,
       "norm_label": ".componentdidcatch()"
     },
     {
@@ -4794,7 +4814,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_reseterror",
-      "community": 69,
+      "community": 3,
       "norm_label": ".reseterror()"
     },
     {
@@ -4804,7 +4824,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_errorboundary_render",
-      "community": 69,
+      "community": 3,
       "norm_label": ".render()"
     },
     {
@@ -4814,7 +4834,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "frontend_src_components_core_errorboundary_defaulterrorfallback",
-      "community": 69,
+      "community": 3,
       "norm_label": "defaulterrorfallback()"
     },
     {
@@ -5144,7 +5164,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "frontend_src_components_core_settingspanel_settingspanelprops",
-      "community": 3,
+      "community": 0,
       "norm_label": "settingspanelprops"
     },
     {
@@ -5334,7 +5354,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext",
-      "community": 0,
+      "community": 31,
       "norm_label": "appcontext.tsx"
     },
     {
@@ -5344,7 +5364,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_appcontextvalue",
-      "community": 0,
+      "community": 31,
       "norm_label": "appcontextvalue"
     },
     {
@@ -5354,7 +5374,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_appcontext",
-      "community": 0,
+      "community": 31,
       "norm_label": "appcontext"
     },
     {
@@ -5364,7 +5384,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_devlogger",
-      "community": 0,
+      "community": 31,
       "norm_label": "devlogger"
     },
     {
@@ -5374,7 +5394,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_logstatechange",
-      "community": 0,
+      "community": 31,
       "norm_label": "logstatechange()"
     },
     {
@@ -5384,7 +5404,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_reducerwithlogging",
-      "community": 0,
+      "community": 31,
       "norm_label": "reducerwithlogging()"
     },
     {
@@ -5394,7 +5414,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "frontend_src_contexts_appcontext_appprovider",
-      "community": 0,
+      "community": 31,
       "norm_label": "appprovider()"
     },
     {
@@ -5604,7 +5624,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_main",
-      "community": 11,
+      "community": 3,
       "norm_label": "main.tsx"
     },
     {
@@ -5614,7 +5634,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "frontend_src_main_rootelement",
-      "community": 11,
+      "community": 3,
       "norm_label": "rootelement"
     },
     {
@@ -5624,7 +5644,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_reducers_tests_appreducer_test",
-      "community": 0,
+      "community": 31,
       "norm_label": "appreducer.test.ts"
     },
     {
@@ -5634,7 +5654,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_src_reducers_tests_appreducer_test_createinitialstate",
-      "community": 0,
+      "community": 31,
       "norm_label": "createinitialstate()"
     },
     {
@@ -5644,7 +5664,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "frontend_src_reducers_tests_appreducer_test_createmockmessage",
-      "community": 0,
+      "community": 31,
       "norm_label": "createmockmessage()"
     },
     {
@@ -5654,7 +5674,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "frontend_src_reducers_tests_appreducer_test_createmockuser",
-      "community": 0,
+      "community": 31,
       "norm_label": "createmockuser()"
     },
     {
@@ -5664,7 +5684,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_reducers_appreducer",
-      "community": 0,
+      "community": 31,
       "norm_label": "appreducer.ts"
     },
     {
@@ -5674,7 +5694,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "frontend_src_reducers_appreducer_appreducer",
-      "community": 0,
+      "community": 31,
       "norm_label": "appreducer()"
     },
     {
@@ -5694,7 +5714,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_services_tests_chatservice_test",
-      "community": 0,
+      "community": 31,
       "norm_label": "chatservice.test.ts"
     },
     {
@@ -5854,7 +5874,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_services_chatservice",
-      "community": 0,
+      "community": 31,
       "norm_label": "chatservice.ts"
     },
     {
@@ -6054,7 +6074,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "frontend_src_services_telemetry_inittelemetry",
-      "community": 11,
+      "community": 3,
       "norm_label": "inittelemetry()"
     },
     {
@@ -6064,7 +6084,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "frontend_src_services_telemetry_trackexception",
-      "community": 0,
+      "community": 3,
       "norm_label": "trackexception()"
     },
     {
@@ -6114,7 +6134,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_types_appstate",
-      "community": 0,
+      "community": 31,
       "norm_label": "appstate.ts"
     },
     {
@@ -6124,7 +6144,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_conversationsummary",
-      "community": 0,
+      "community": 3,
       "norm_label": "conversationsummary"
     },
     {
@@ -6134,7 +6154,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_conversationmessageinfo",
-      "community": 0,
+      "community": 31,
       "norm_label": "conversationmessageinfo"
     },
     {
@@ -6144,7 +6164,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_appstate",
-      "community": 0,
+      "community": 31,
       "norm_label": "appstate"
     },
     {
@@ -6154,7 +6174,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_appaction",
-      "community": 0,
+      "community": 31,
       "norm_label": "appaction"
     },
     {
@@ -6164,7 +6184,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "frontend_src_types_appstate_initialappstate",
-      "community": 0,
+      "community": 31,
       "norm_label": "initialappstate"
     },
     {
@@ -6174,7 +6194,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_types_chat",
-      "community": 94,
+      "community": 68,
       "norm_label": "chat.ts"
     },
     {
@@ -6184,7 +6204,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_types_chat_ichatitem",
-      "community": 82,
+      "community": 31,
       "norm_label": "ichatitem"
     },
     {
@@ -6194,7 +6214,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "frontend_src_types_chat_imcpapprovalrequest",
-      "community": 94,
+      "community": 68,
       "norm_label": "imcpapprovalrequest"
     },
     {
@@ -6204,7 +6224,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "frontend_src_types_chat_iusageinfo",
-      "community": 94,
+      "community": 82,
       "norm_label": "iusageinfo"
     },
     {
@@ -6214,7 +6234,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "frontend_src_types_chat_ifileattachment",
-      "community": 0,
+      "community": 31,
       "norm_label": "ifileattachment"
     },
     {
@@ -6234,7 +6254,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "frontend_src_types_chat_iagentmetadata",
-      "community": 94,
+      "community": 3,
       "norm_label": "iagentmetadata"
     },
     {
@@ -6264,7 +6284,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_src_types_errors_apperror",
-      "community": 0,
+      "community": 31,
       "norm_label": "apperror"
     },
     {
@@ -6814,7 +6834,7 @@
       "source_location": "L226",
       "_origin": "ast",
       "id": "frontend_src_utils_fileattachments_createattachmentmetadata",
-      "community": 8,
+      "community": 0,
       "norm_label": "createattachmentmetadata()"
     },
     {
@@ -20185,6 +20205,16 @@
       },
       "source": "backend_webapp_servicedefaults_extensions_microsoft_extensions_hosting_extensions_mapdefaultendpoints",
       "target": "webapplication",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deployment/hatclaw-ia/sw.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "deployment_hatclaw_ia_sw",
+      "target": "deployment_hatclaw_ia_sw_app_shell",
       "confidence_score": 1.0
     },
     {
@@ -36333,5 +36363,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "366ab9bf2b83046affc1b6f9ac89020017e2471b"
+  "built_at_commit": "704847f93b11fdf37a5a17f3634892079a6dd9dc"
 }

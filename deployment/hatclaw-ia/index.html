@@ -2,28 +2,53 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
     <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="HatClaw" />
+    <meta name="application-name" content="HatClaw - CoderMax" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
     <title>HatClaw - CoderMax</title>
     <style>
       html,
       body {
         width: 100%;
         height: 100%;
+        min-width: 100%;
+        min-height: 100%;
         margin: 0;
         padding: 0;
         overflow: hidden;
         background: #000;
+        overscroll-behavior: none;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        touch-action: manipulation;
+      }
+
+      body {
+        position: fixed;
+        inset: 0;
+        height: var(--app-height, 100dvh);
       }
 
       iframe {
         display: block;
-        width: 100vw;
-        height: 100vh;
-        height: 100dvh;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        height: var(--app-height, 100dvh);
         margin: 0;
         padding: 0;
         border: 0;
+        background: #000;
       }
 
       .intro {
@@ -58,8 +83,8 @@
       }
 
       .intro-logo {
-        width: min(82vw, 720px);
-        max-height: 76vh;
+        width: min(88vw, 560px);
+        max-height: 68dvh;
         object-fit: contain;
         filter: drop-shadow(0 20px 45px rgba(255, 255, 255, 0.13));
         opacity: 0;
@@ -71,9 +96,11 @@
 
       .skip-intro {
         position: absolute;
-        right: max(22px, env(safe-area-inset-right));
-        bottom: max(24px, env(safe-area-inset-bottom));
-        padding: 11px 20px;
+        right: max(16px, env(safe-area-inset-right));
+        bottom: max(18px, env(safe-area-inset-bottom));
+        min-width: 120px;
+        min-height: 48px;
+        padding: 12px 20px;
         border: 1px solid rgba(255, 255, 255, 0.42);
         border-radius: 999px;
         color: #fff;
@@ -116,6 +143,25 @@
         to { transform: scaleX(1); }
       }
 
+      @media (min-width: 768px) {
+        .intro-logo {
+          width: min(82vw, 720px);
+          max-height: 76dvh;
+        }
+
+        .skip-intro {
+          right: max(22px, env(safe-area-inset-right));
+          bottom: max(24px, env(safe-area-inset-bottom));
+        }
+      }
+
+      @media (max-height: 520px) and (orientation: landscape) {
+        .intro-logo {
+          width: min(62vw, 480px);
+          max-height: 62dvh;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .intro-logo,
         .skip-intro,
@@ -147,6 +193,11 @@
         const skipButton = document.getElementById('skipIntro');
         let finished = false;
 
+        const updateViewportHeight = () => {
+          const height = window.visualViewport?.height || window.innerHeight;
+          document.documentElement.style.setProperty('--app-height', `${height}px`);
+        };
+
         const finishIntro = () => {
           if (finished) return;
           finished = true;
@@ -155,7 +206,17 @@
         };
 
         skipButton.addEventListener('click', finishIntro);
+        updateViewportHeight();
+        window.addEventListener('resize', updateViewportHeight, { passive: true });
+        window.addEventListener('orientationchange', updateViewportHeight, { passive: true });
+        window.visualViewport?.addEventListener('resize', updateViewportHeight, { passive: true });
         window.setTimeout(finishIntro, 10000);
+
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {});
+          });
+        }
       })();
     </script>
   </body>

@@ -805,8 +805,8 @@
     "semantic_hash": ""
   },
   "deployment/hatclaw-ia/index.html": {
-    "mtime": 1784141847.330564,
-    "ast_hash": "682164e839054e32f5a3017d97250243",
+    "mtime": 1784142003.9122431,
+    "ast_hash": "e5cd8e08e42c47e9de71630becefabee",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -817,6 +817,26 @@
   "deployment/hatclaw-ia/hatclaw_logo.png": {
     "mtime": 1784141698.2731206,
     "ast_hash": "89b2ea638cf8745c9e7280c93b748442",
+    "semantic_hash": ""
+  },
+  "deployment/hatclaw-ia/sw.js": {
+    "mtime": 1784142003.9142435,
+    "ast_hash": "8e784a64318b01f83237bc70ba580c67",
+    "semantic_hash": ""
+  },
+  "deployment/hatclaw-ia/icon-192.png": {
+    "mtime": 1784142017.2004776,
+    "ast_hash": "e6c0d201ffa6eedf0506b10ff5fccfd1",
+    "semantic_hash": ""
+  },
+  "deployment/hatclaw-ia/icon-512.png": {
+    "mtime": 1784142017.2324793,
+    "ast_hash": "6f41cb04449d319b616af28552d79f5f",
+    "semantic_hash": ""
+  },
+  "deployment/hatclaw-ia/icon-maskable-512.png": {
+    "mtime": 1784142017.2570715,
+    "ast_hash": "7d7420655151ab306c9e39ead3b19c6b",
     "semantic_hash": ""
   }
 }
