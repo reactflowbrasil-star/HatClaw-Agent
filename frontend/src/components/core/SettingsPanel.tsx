@@ -7,6 +7,7 @@ import {
   Button,
   Text,
   Spinner,
+  Input,
   Dialog,
   DialogSurface,
   DialogTitle,
@@ -20,6 +21,13 @@ import {
 import { Dismiss24Regular, Delete24Regular } from '@fluentui/react-icons';
 import { ThemePicker } from './ThemePicker';
 import type { ChatService } from '../../services/chatService';
+import {
+  checkAutomationBridge,
+  getAutomationBridgeUrl,
+  getAutomationToken,
+  setAutomationBridgeUrl,
+  setAutomationToken,
+} from '../../services/automationService';
 
 interface SettingsPanelProps {
   isOpen: boolean;
@@ -41,6 +49,11 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForeground1,
   },
   filesRow: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingVerticalS,
+  },
+  automationRow: {
     display: 'flex',
     flexDirection: 'column',
     gap: tokens.spacingVerticalS,
@@ -95,6 +108,10 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onOpenChan
   const [cleaning, setCleaning] = useState(false);
   const [status, setStatus] = useState<{ text: string; isError: boolean } | null>(null);
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [bridgeUrl, setBridgeUrl] = useState(getAutomationBridgeUrl);
+  const [bridgeToken, setBridgeToken] = useState(getAutomationToken);
+  const [bridgeStatus, setBridgeStatus] = useState<{ text: string; isError: boolean } | null>(null);
+  const [testingBridge, setTestingBridge] = useState(false);
 
   const loadFilesInfo = useCallback(async () => {
     setLoadingInfo(true);
@@ -139,6 +156,21 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onOpenChan
     }
   };
 
+  const handleTestBridge = async () => {
+    setAutomationBridgeUrl(bridgeUrl.trim() || 'http://127.0.0.1:8765');
+    setAutomationToken(bridgeToken);
+    setTestingBridge(true);
+    setBridgeStatus(null);
+    try {
+      const result = await checkAutomationBridge();
+      setBridgeStatus({ text: `Conectado: ${result.platform || 'dispositivo local'}`, isError: false });
+    } catch (err) {
+      setBridgeStatus({ text: err instanceof Error ? err.message : 'Ponte local indisponível', isError: true });
+    } finally {
+      setTestingBridge(false);
+    }
+  };
+
   const count = filesInfo?.count ?? 0;
   const canCleanup = !loadingInfo && !cleaning && count > 0;
 
@@ -168,6 +200,36 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onOpenChan
         <div className={styles.section}>
           <div className={styles.sectionTitle}>Appearance</div>
           <ThemePicker />
+        </div>
+
+        <div className={styles.section}>
+          <div className={styles.sectionTitle}>Automação local (opcional)</div>
+          <div className={styles.automationRow}>
+            <Input
+              aria-label="Endereço da ponte de automação"
+              value={bridgeUrl}
+              onChange={(_, data) => setBridgeUrl(data.value)}
+              placeholder="http://127.0.0.1:8765"
+            />
+            <Input
+              aria-label="Token da ponte de automação"
+              type="password"
+              value={bridgeToken}
+              onChange={(_, data) => setBridgeToken(data.value)}
+              placeholder="Token local (opcional)"
+            />
+            <Button appearance="secondary" disabled={testingBridge} onClick={handleTestBridge}>
+              {testingBridge ? 'Testando…' : 'Salvar e testar ponte'}
+            </Button>
+            <Text className={styles.filesHint}>
+              Controla Chrome e arquivos deste dispositivo após sua confirmação.
+            </Text>
+            {bridgeStatus && (
+              <Text className={bridgeStatus.isError ? styles.statusError : styles.status}>
+                {bridgeStatus.text}
+              </Text>
+            )}
+          </div>
         </div>
 
         <div className={styles.section}>

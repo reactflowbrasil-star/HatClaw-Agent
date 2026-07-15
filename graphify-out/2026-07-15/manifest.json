@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "frontend/src/components/ChatInterface.tsx": {
-    "mtime": 1784137388.0811682,
-    "ast_hash": "c6a30cf2a26fb900006a81dd3e2e114a",
+    "mtime": 1784138273.0366182,
+    "ast_hash": "e843ad4709bd5ed89c013f50bb5cd2ef",
     "semantic_hash": ""
   },
   "frontend/src/components/ConversationSidebar.tsx": {

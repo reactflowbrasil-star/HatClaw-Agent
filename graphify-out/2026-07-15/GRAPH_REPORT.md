@@ -1,11 +1,11 @@
 # Graph Report - foundry-agent-webapp-main  (2026-07-15)
 
 ## Corpus Check
-- 149 files · ~78,067 words
+- 149 files · ~78,115 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1474 nodes · 1841 edges · 106 communities (101 shown, 5 thin omitted)
+- 1475 nodes · 1843 edges · 105 communities (100 shown, 5 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
@@ -98,7 +98,6 @@
 - serviceManagementReference
 - webImageName
 - test.md
-- WEB_IDENTITY_PRINCIPAL_ID
 
 ## God Nodes (most connected - your core abstractions)
 1. `AgentFrameworkService` - 38 edges
@@ -113,25 +112,25 @@
 10. `Deploying to Azure` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `AssistantMessageProps` --references--> `IChatItem`  [EXTRACTED]
-  frontend/src/components/chat/AssistantMessage.tsx → frontend/src/types/chat.ts
-- `UserMessageProps` --references--> `IChatItem`  [EXTRACTED]
-  frontend/src/components/chat/UserMessage.tsx → frontend/src/types/chat.ts
+- `SettingsPanelProps` --references--> `ChatService`  [EXTRACTED]
+  frontend/src/components/core/SettingsPanel.tsx → frontend/src/services/chatService.ts
 - `AgentFrameworkService` --references--> `AgentMetadataResponse`  [EXTRACTED]
   backend/WebApp.Api/Services/AgentFrameworkService.cs → backend/WebApp.Api/Models/AgentMetadata.cs
+- `ChatInterfaceProps` --references--> `AppState`  [EXTRACTED]
+  frontend/src/components/ChatInterface.tsx → frontend/src/types/appState.ts
 - `ConversationSidebarProps` --references--> `ConversationSummary`  [EXTRACTED]
   frontend/src/components/ConversationSidebar.tsx → frontend/src/types/appState.ts
-- `AssistantMessageComponent()` --calls--> `parseContentWithCitations()`  [EXTRACTED]
-  frontend/src/components/chat/AssistantMessage.tsx → frontend/src/utils/citationParser.ts
+- `AssistantMessageProps` --references--> `IChatItem`  [EXTRACTED]
+  frontend/src/components/chat/AssistantMessage.tsx → frontend/src/types/chat.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (106 total, 5 thin omitted)
+## Communities (105 total, 5 thin omitted)
 
 ### Community 0 - "chatService.ts"
-Cohesion: 0.09
-Nodes (31): RFC-7807, formatBytes(), SettingsPanel(), SettingsPanelProps, useStyles, ChatService, trackException(), DETAILED_ERROR_MESSAGES (+23 more)
+Cohesion: 0.13
+Nodes (17): RFC-7807, ChatService, trackException(), ConversationMessageInfo, DETAILED_ERROR_MESSAGES, ERROR_MESSAGES, ErrorCode, isAppError() (+9 more)
 
 ### Community 1 - "parameters"
 Cohesion: 0.04
@@ -142,20 +141,20 @@ Cohesion: 0.04
 Nodes (46): eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh, devDependencies, eslint, @eslint/js, eslint-plugin-react-hooks (+38 more)
 
 ### Community 3 - "AgentChat.tsx"
-Cohesion: 0.17
-Nodes (15): AgentChat(), AgentChatProps, ChatInterface(), useAppContext(), useAppState(), useChatState(), useUIState(), rootElement (+7 more)
+Cohesion: 0.14
+Nodes (17): AgentChat(), AgentChatProps, UsageInfo(), UsageInfoProps, useAppContext(), useAppState(), useChatState(), useUIState() (+9 more)
 
 ### Community 4 - "dependencies"
 Cohesion: 0.05
 Nodes (39): @azure/msal-browser, @azure/msal-react, clsx, copy-to-clipboard, date-fns, @fluentui-copilot/react-copilot, @fluentui-copilot/react-copilot-chat, @fluentui/react-components (+31 more)
 
 ### Community 5 - "parameters"
-Cohesion: 0.06
-Nodes (39): defaultValue, metadata, type, defaultValue, metadata, type, defaultValue, metadata (+31 more)
+Cohesion: 0.25
+Nodes (8): defaultValue, type, defaultValue, metadata, type, parameters, enableObo, entraTenantId
 
 ### Community 6 - "outputs"
-Cohesion: 0.20
-Nodes (10): type, value, type, value, type, value, outputs, AZURE_CONTAINER_APP_NAME (+2 more)
+Cohesion: 0.06
+Nodes (34): type, value, type, value, type, value, type, value (+26 more)
 
 ### Community 7 - "main-infrastructure.json"
 Cohesion: 0.06
@@ -163,7 +162,7 @@ Nodes (33): type, value, type, value, type, value, contentVersion, appContainerA
 
 ### Community 8 - "fileAttachments.ts"
 Cohesion: 0.12
-Nodes (25): ChatInput(), ChatInputProps, createLongTextAttachment(), focusInput(), FilePreview(), FilePreviewProps, TEXT_PREVIEW_TYPES, useStyles (+17 more)
+Nodes (26): ChatInput(), ChatInputProps, createLongTextAttachment(), focusInput(), FilePreview(), FilePreviewProps, TEXT_PREVIEW_TYPES, useStyles (+18 more)
 
 ### Community 9 - "compilerOptions"
 Cohesion: 0.06
@@ -174,8 +173,8 @@ Cohesion: 0.20
 Nodes (9): contentVersion, imports, microsoftGraphV1, languageVersion, provider, version, $schema, variables (+1 more)
 
 ### Community 11 - "ThemeContext.tsx"
-Cohesion: 0.16
-Nodes (16): Wave, Waves(), WavesProps, IDropdownItem, ThemePicker(), ThemeProvider(), brandColors, darkTheme (+8 more)
+Cohesion: 0.13
+Nodes (20): Wave, Waves(), WavesProps, formatBytes(), SettingsPanel(), SettingsPanelProps, useStyles, IDropdownItem (+12 more)
 
 ### Community 12 - "WebApp.ServiceDefaults"
 Cohesion: 0.09
@@ -246,8 +245,8 @@ Cohesion: 0.27
 Nodes (4): Extensions, Microsoft.Extensions.Hosting, IHostApplicationBuilder, WebApplication
 
 ### Community 30 - "AssistantMessage.tsx"
-Cohesion: 0.14
-Nodes (15): AssistantMessage, AssistantMessageComponent(), AssistantMessageProps, getToolUseLabel(), MessageActions, MessageActionsProps, UsageInfo(), UsageInfoProps (+7 more)
+Cohesion: 0.09
+Nodes (26): AssistantMessage, AssistantMessageComponent(), AssistantMessageProps, getToolUseLabel(), DropZone(), DropZoneProps, MessageActions, MessageActionsProps (+18 more)
 
 ### Community 31 - "StarterMessages.tsx"
 Cohesion: 0.24
@@ -318,12 +317,12 @@ Cohesion: 0.11
 Nodes (17): .agent.md Quality Gates, ARCHITECTURE-FLOW.md, Architecture Maintenance, Audit Checklists, Constraints, Content Quality Rules, copilot-instructions.md, Cross-Document Consistency (+9 more)
 
 ### Community 68 - "ChatInterface.tsx"
-Cohesion: 0.17
-Nodes (15): DropZone(), DropZoneProps, ChatInterfaceProps, ErrorMessage(), ErrorMessageProps, useStyles, KeyboardShortcuts(), KeyboardShortcutsProps (+7 more)
+Cohesion: 0.29
+Nodes (10): parseSseLine(), splitSseBuffer(), SseAnnotationsEvent, SseChunkEvent, SseConversationIdEvent, SseDoneEvent, SseErrorEvent, SseEvent (+2 more)
 
 ### Community 69 - "AppContext.tsx"
-Cohesion: 0.18
-Nodes (9): AppContext, AppContextValue, AppProvider(), devLogger, logStateChange(), reducerWithLogging(), appReducer(), AppAction (+1 more)
+Cohesion: 0.22
+Nodes (11): AppContext, AppContextValue, AppProvider(), devLogger, logStateChange(), reducerWithLogging(), appReducer(), AppAction (+3 more)
 
 ### Community 70 - "Syncing MCP Servers"
 Cohesion: 0.12
@@ -430,40 +429,36 @@ Cohesion: 0.33
 Nodes (5): Commit Message Format, Commit Workflow, Constraints, Rules, Type Prefixes
 
 ### Community 96 - "description"
-Cohesion: 0.67
-Nodes (3): type, value, AZURE_CONTAINER_APPS_ENVIRONMENT_ID
+Cohesion: 0.33
+Nodes (6): defaultValue, metadata, type, metadata, description, aiAgentId
 
 ### Community 97 - "_generator"
 Cohesion: 0.40
 Nodes (5): name, templateHash, version, metadata, _generator
 
 ### Community 98 - "environmentName"
-Cohesion: 0.67
-Nodes (3): type, value, AZURE_CONTAINER_REGISTRY_NAME
+Cohesion: 0.40
+Nodes (5): maxLength, metadata, minLength, type, environmentName
 
 ### Community 99 - "aiAgentEndpoint"
-Cohesion: 0.67
-Nodes (3): type, value, ENTRA_APP_OBJECT_ID
+Cohesion: 0.50
+Nodes (4): defaultValue, metadata, type, aiAgentEndpoint
 
 ### Community 100 - "enableObo"
-Cohesion: 0.67
-Nodes (3): type, value, ENTRA_BACKEND_APP_OBJECT_ID
+Cohesion: 0.50
+Nodes (4): defaultValue, metadata, type, defaultTags
 
 ### Community 101 - "entraTenantId"
-Cohesion: 0.67
-Nodes (3): type, value, ENTRA_BACKEND_CLIENT_ID
+Cohesion: 0.50
+Nodes (4): metadata, minLength, type, location
 
 ### Community 102 - "serviceManagementReference"
-Cohesion: 0.67
-Nodes (3): type, value, ENTRA_SPA_CLIENT_ID
+Cohesion: 0.50
+Nodes (4): serviceManagementReference, defaultValue, metadata, type
 
 ### Community 103 - "webImageName"
-Cohesion: 0.67
-Nodes (3): WEB_ENDPOINT, type, value
-
-### Community 105 - "WEB_IDENTITY_PRINCIPAL_ID"
-Cohesion: 0.67
-Nodes (3): WEB_IDENTITY_PRINCIPAL_ID, type, value
+Cohesion: 0.50
+Nodes (4): webImageName, defaultValue, metadata, type
 
 ## Knowledge Gaps
 - **760 isolated node(s):** `net10.0`, `System.Security.Cryptography.Xml (10.0.6)`, `MSTest.Sdk/3.10.2`, `ConversationInfo`, `ConversationListResponse` (+755 more)
@@ -477,13 +472,13 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `WebApp.Api.Models` connect `WebApp.Api.Models` to `ConversationModels.cs`, `.BuildUserMessageAsync`, `.CreateFromException`, `AgentFrameworkServiceConfigTests`, `.StreamMessageAsync`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
+- **Why does `IChatItem` connect `AssistantMessage.tsx` to `chatService.ts`, `AgentChat.tsx`, `AppContext.tsx`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **What connects `net10.0`, `System.Security.Cryptography.Xml (10.0.6)`, `MSTest.Sdk/3.10.2` to the rest of the system?**
   _760 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `chatService.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.08708272859216255 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.13213213213213212 - nodes in this community are weakly interconnected._
 - **Should `parameters` be split into smaller, more focused modules?**
   _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
-- **Should `dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected._

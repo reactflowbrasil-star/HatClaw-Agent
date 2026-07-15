@@ -255,8 +255,8 @@
     "semantic_hash": ""
   },
   "frontend/src/components/AgentChat.tsx": {
-    "mtime": 1784137515.1879408,
-    "ast_hash": "b4477df8c0fb11e2f5ba908bfdc38f57",
+    "mtime": 1784139301.9614363,
+    "ast_hash": "ee9c9bb1bfcc8c217cdcb5a983d2edd9",
     "semantic_hash": ""
   },
   "frontend/src/components/ChatInterface.tsx": {
@@ -370,9 +370,9 @@
     "semantic_hash": "2c518cddb827fdab2112d79efcaadbb4"
   },
   "frontend/src/components/core/SettingsPanel.tsx": {
-    "mtime": 1776814048.0,
-    "ast_hash": "6bbfc6935cb26a2ae976ff0283e5b641",
-    "semantic_hash": "6bbfc6935cb26a2ae976ff0283e5b641"
+    "mtime": 1784139357.6502361,
+    "ast_hash": "e4f7a5da6c256fb03e384d80ff065e49",
+    "semantic_hash": ""
   },
   "frontend/src/components/core/ThemePicker.tsx": {
     "mtime": 1776814048.0,
@@ -767,6 +767,41 @@
   ".github/skills/validating-ui-features/test-files/test.png": {
     "mtime": 1776814048.0,
     "ast_hash": "f9f0e3ef6434aae2f75e84acd7debd22",
+    "semantic_hash": ""
+  },
+  "automation/bridge.py": {
+    "mtime": 1784139282.9454775,
+    "ast_hash": "60bb9abf2fb669c276ef361543bae04d",
+    "semantic_hash": ""
+  },
+  "automation/start-bridge.ps1": {
+    "mtime": 1784139282.9464788,
+    "ast_hash": "1bccb2b041b571fba4f390f32c85852f",
+    "semantic_hash": ""
+  },
+  "frontend/src/services/__tests__/automationService.test.ts": {
+    "mtime": 1784139155.220763,
+    "ast_hash": "3e3bf86c6be51c7f391351b194354fce",
+    "semantic_hash": ""
+  },
+  "frontend/src/services/automationService.ts": {
+    "mtime": 1784139155.220763,
+    "ast_hash": "ff5b11f7f7d83acfeede87165bb7ae8f",
+    "semantic_hash": ""
+  },
+  "automation/.test-sandbox/teste.txt": {
+    "mtime": 1784139415.9131262,
+    "ast_hash": "549a8587126695f0adbea8824c0a8cd2",
+    "semantic_hash": ""
+  },
+  "automation/README.md": {
+    "mtime": 1784139282.9464788,
+    "ast_hash": "5d50a5918cac5d43e17b7f9173e8ed6b",
+    "semantic_hash": ""
+  },
+  "automation/requirements.txt": {
+    "mtime": 1784139282.9454775,
+    "ast_hash": "6ab439a7473d520082fe727f299d2648",
     "semantic_hash": ""
   }
 }

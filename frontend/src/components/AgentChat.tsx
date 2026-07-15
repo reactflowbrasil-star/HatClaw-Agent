@@ -7,6 +7,7 @@ import { ChatService } from '../services/chatService';
 import { useAppContext } from '../contexts/AppContext';
 import { exportAsMarkdown, downloadMarkdown } from '../utils/exportConversation';
 import { trackFeedback } from '../services/telemetry';
+import { executeAutomation, parseAutomationIntent } from '../services/automationService';
 import type { IChatItem } from '../types/chat';
 import styles from './AgentChat.module.css';
 
@@ -30,9 +31,43 @@ export const AgentChat: React.FC<AgentChatProps> = ({ agentName, agentDescriptio
     return new ChatService(apiUrl, async () => 'public-access', dispatch);
   }, [apiUrl, dispatch]);
 
+  const appendLocalAutomationExchange = useCallback((text: string, response: string) => {
+    const now = new Date().toISOString();
+    const nonce = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    const messages: IChatItem[] = [
+      { id: `automation-user-${nonce}`, role: 'user', content: text, more: { time: now } },
+      { id: `automation-assistant-${nonce}`, role: 'assistant', content: response, more: { time: now } },
+    ];
+    dispatch({ type: 'CHAT_LOAD_MESSAGES', messages });
+  }, [dispatch]);
+
   const handleSendMessage = async (text: string, files?: File[]) => {
     if (chat.status === 'streaming' || chat.status === 'sending') {
       dispatch({ type: 'CHAT_QUEUE_MESSAGE', text, files });
+      return;
+    }
+
+    const automationIntent = !files?.length ? parseAutomationIntent(text) : null;
+    if (automationIntent) {
+      const confirmed = window.confirm(
+        `Permitir automação local?\n\n${automationIntent.description}\n\nA ação será executada pela ponte HatClaw deste dispositivo.`
+      );
+      if (!confirmed) {
+        appendLocalAutomationExchange(text, 'Automação cancelada. Nenhuma ação foi executada.');
+        return;
+      }
+
+      try {
+        const result = await executeAutomation(automationIntent);
+        const details = result.data ? `\n\n\`\`\`json\n${JSON.stringify(result.data, null, 2)}\n\`\`\`` : '';
+        appendLocalAutomationExchange(text, `✅ ${result.message}${details}`);
+      } catch (error) {
+        const reason = error instanceof Error ? error.message : 'Falha desconhecida';
+        appendLocalAutomationExchange(
+          text,
+          `Não foi possível executar a automação local: ${reason}\n\nInicie a ponte neste dispositivo com \`.\\automation\\start-bridge.ps1\` e tente novamente.`
+        );
+      }
       return;
     }
     await chatService.sendMessage(text, chat.currentConversationId, files);
