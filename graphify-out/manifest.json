@@ -803,5 +803,10 @@
     "mtime": 1784139282.9454775,
     "ast_hash": "6ab439a7473d520082fe727f299d2648",
     "semantic_hash": ""
+  },
+  "deployment/hatclaw-ia/index.html": {
+    "mtime": 1784141439.5985446,
+    "ast_hash": "e60775036e2c67b5724d86034bbc29a4",
+    "semantic_hash": ""
   }
 }
