@@ -29,6 +29,16 @@ describe('parseAutomationIntent', () => {
     expect(parseAutomationIntent('extraia o conteúdo do elemento "main" como html')?.parameters.mode).toBe('html');
   });
 
+  it('recognizes agent-browser controls', () => {
+    expect(parseAutomationIntent('inspecione a página')?.action).toBe('browser.snapshot');
+    expect(parseAutomationIntent('tire um screenshot')?.action).toBe('browser.screenshot');
+    expect(parseAutomationIntent('passe o mouse sobre "#menu"')?.action).toBe('browser.hover');
+    expect(parseAutomationIntent('pressione a tecla "Enter"')?.parameters.key).toBe('Enter');
+    expect(parseAutomationIntent('volte uma página')?.action).toBe('browser.back');
+    expect(parseAutomationIntent('recarregue a página')?.action).toBe('browser.reload');
+    expect(parseAutomationIntent('feche o chrome')?.action).toBe('browser.close');
+  });
+
   it('recognizes sandboxed file actions', () => {
     expect(parseAutomationIntent('liste arquivos')?.action).toBe('files.list');
     expect(parseAutomationIntent('leia o arquivo "notas.txt"')?.action).toBe('files.read');

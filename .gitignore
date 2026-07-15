@@ -28,6 +28,9 @@ Thumbs.db
 # Node
 node_modules/
 npm-debug.log*
+agent-browser-main/
+agent-browser-main.zip
+graphify-out/cache/ast/
 # .npmrc - Keep this if you use custom npm registries (public or private)
 # For private registries: Add .npmrc with ${NPM_TOKEN} placeholders, pass token as Docker build secret
 

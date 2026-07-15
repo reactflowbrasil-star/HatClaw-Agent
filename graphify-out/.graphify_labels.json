@@ -93,9 +93,11 @@
   "91": "outputs",
   "92": "variables",
   "93": "$fxv#0",
+  "94": "description",
   "95": "Commit Message Format",
   "96": "description",
   "97": "_generator",
+  "98": "environmentName",
   "99": "aiAgentEndpoint",
   "100": "enableObo",
   "101": "entraTenantId",
@@ -104,7 +106,5 @@
   "104": "test.md",
   "105": "ENTRA_BACKEND_CLIENT_ID",
   "106": "ENTRA_SPA_CLIENT_ID",
-  "107": "WEB_ENDPOINT",
-  "108": "WEB_IDENTITY_PRINCIPAL_ID",
   "109": "start-bridge.ps1"
 }

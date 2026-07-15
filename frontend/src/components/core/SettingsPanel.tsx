@@ -179,7 +179,8 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onOpenChan
     setBridgeStatus(null);
     try {
       const result = await checkAutomationBridge();
-      setBridgeStatus({ text: `Conectado: ${result.platform || 'dispositivo local'}`, isError: false });
+      const engine = result.browserEngine ? ` · ${result.browserEngine}` : '';
+      setBridgeStatus({ text: `Conectado: ${result.platform || 'dispositivo local'}${engine}`, isError: false });
     } catch (err) {
       setBridgeStatus({ text: err instanceof Error ? err.message : 'Ponte local indisponível', isError: true });
     } finally {

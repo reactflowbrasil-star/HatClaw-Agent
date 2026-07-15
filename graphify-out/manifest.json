@@ -370,8 +370,8 @@
     "semantic_hash": "2c518cddb827fdab2112d79efcaadbb4"
   },
   "frontend/src/components/core/SettingsPanel.tsx": {
-    "mtime": 1784141614.54123,
-    "ast_hash": "a21cbfa55f37c863371ad506698673c0",
+    "mtime": 1784152878.2968123,
+    "ast_hash": "9245533dd9a7ea0d5c1a29ee54828eea",
     "semantic_hash": ""
   },
   "frontend/src/components/core/ThemePicker.tsx": {
@@ -770,23 +770,23 @@
     "semantic_hash": ""
   },
   "automation/bridge.py": {
-    "mtime": 1784141614.5402327,
-    "ast_hash": "4063a64572c8bf5a9c37c93b4ecc9fb2",
+    "mtime": 1784153172.0755491,
+    "ast_hash": "6cca339ab3096b8b33700beab56adbc2",
     "semantic_hash": ""
   },
   "automation/start-bridge.ps1": {
-    "mtime": 1784139282.9464788,
-    "ast_hash": "1bccb2b041b571fba4f390f32c85852f",
+    "mtime": 1784152910.236614,
+    "ast_hash": "6a74647272dda6566b60f108fbded9dc",
     "semantic_hash": ""
   },
   "frontend/src/services/__tests__/automationService.test.ts": {
-    "mtime": 1784141614.542231,
-    "ast_hash": "a7ba848deb6e7bf01025cbd973dcb837",
+    "mtime": 1784152878.2978127,
+    "ast_hash": "6d1d0ebe9d9ca3228a0398824db8e6f9",
     "semantic_hash": ""
   },
   "frontend/src/services/automationService.ts": {
-    "mtime": 1784141614.543231,
-    "ast_hash": "b93c03db6bd00e5fbcfcd5a05a69d9bc",
+    "mtime": 1784152878.2958121,
+    "ast_hash": "9c26cae0ef2b6498a8269191da7be839",
     "semantic_hash": ""
   },
   "automation/.test-sandbox/teste.txt": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "automation/README.md": {
-    "mtime": 1784141614.539229,
-    "ast_hash": "481b084e0e5900b31e36b928de589ddf",
+    "mtime": 1784153340.6692467,
+    "ast_hash": "b14982de5ab444522a294be69473892f",
     "semantic_hash": ""
   },
   "automation/requirements.txt": {
@@ -837,6 +837,16 @@
   "deployment/hatclaw-ia/icon-maskable-512.png": {
     "mtime": 1784142017.2570715,
     "ast_hash": "7d7420655151ab306c9e39ead3b19c6b",
+    "semantic_hash": ""
+  },
+  "automation/install-agent-browser.ps1": {
+    "mtime": 1784153576.4688313,
+    "ast_hash": "bca9d19e10c6f48275716fd7e31391e3",
+    "semantic_hash": ""
+  },
+  "automation/.test-sandbox/screenshots/integration.png": {
+    "mtime": 1784153192.2643447,
+    "ast_hash": "56b06bc41a1c0f5ec8de174a16348364",
     "semantic_hash": ""
   }
 }

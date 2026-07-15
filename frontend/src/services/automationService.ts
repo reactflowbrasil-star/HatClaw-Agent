@@ -9,6 +9,14 @@ export type AutomationAction =
   | 'browser.wait'
   | 'browser.read'
   | 'browser.extract'
+  | 'browser.snapshot'
+  | 'browser.screenshot'
+  | 'browser.hover'
+  | 'browser.press'
+  | 'browser.back'
+  | 'browser.forward'
+  | 'browser.reload'
+  | 'browser.close'
   | 'files.list'
   | 'files.read'
   | 'files.write';
@@ -106,6 +114,42 @@ export function parseAutomationIntent(text: string): AutomationIntent | null {
     return { action: 'browser.extract', parameters: { selector: match[1], mode }, description: `Extrair conteúdo de ${match[1]}` };
   }
 
+  match = trimmed.match(/^(?:no\s+chrome[,]?\s*)?(?:inspecione|inspecionar|mapeie|mapear|snapshot)(?:\s+(?:a\s+)?(?:página|pagina|tela|navegador))?\s*[.!]?$/i);
+  if (match) {
+    return { action: 'browser.snapshot', parameters: {}, description: 'Capturar o mapa acessível da página' };
+  }
+
+  match = trimmed.match(/^(?:no\s+chrome[,]?\s*)?(?:tire|tirar|capture|capturar|faça|fazer)\s+(?:um(?:a)?\s+)?(?:screenshot|captura\s+de\s+tela)(?:\s+(?:em|como)\s+["'`](.+?)["'`])?\s*[.!]?$/i);
+  if (match) {
+    return { action: 'browser.screenshot', parameters: { path: match[1] || 'screenshots/hatclaw-browser.png' }, description: 'Capturar screenshot da página' };
+  }
+
+  match = trimmed.match(/^(?:no\s+chrome[,]?\s*)?(?:passe\s+o\s+mouse|hover)\s+(?:sobre\s+)?(?:o\s+)?(?:elemento\s+|seletor\s+)?["'`](.+?)["'`]\s*[.!]?$/i);
+  if (match) {
+    return { action: 'browser.hover', parameters: { selector: match[1] }, description: `Passar o mouse sobre ${match[1]}` };
+  }
+
+  match = trimmed.match(/^(?:no\s+chrome[,]?\s*)?(?:pressione|pressionar|press)\s+(?:a\s+tecla\s+)?["'`]?([a-zA-Z0-9+_-]+)["'`]?\s*[.!]?$/i);
+  if (match) {
+    return { action: 'browser.press', parameters: { key: match[1] }, description: `Pressionar a tecla ${match[1]}` };
+  }
+
+  if (/^(?:no\s+chrome[,]?\s*)?(?:volte|voltar)\s+(?:uma\s+página|pagina|no\s+navegador)\s*[.!]?$/i.test(trimmed)) {
+    return { action: 'browser.back', parameters: {}, description: 'Voltar uma página no navegador' };
+  }
+
+  if (/^(?:no\s+chrome[,]?\s*)?(?:avance|avançar)\s+(?:uma\s+página|pagina|no\s+navegador)\s*[.!]?$/i.test(trimmed)) {
+    return { action: 'browser.forward', parameters: {}, description: 'Avançar uma página no navegador' };
+  }
+
+  if (/^(?:no\s+chrome[,]?\s*)?(?:recarregue|recarregar|reload)\s+(?:a\s+)?(?:página|pagina)?\s*[.!]?$/i.test(trimmed)) {
+    return { action: 'browser.reload', parameters: {}, description: 'Recarregar a página atual' };
+  }
+
+  if (/^(?:por\s+favor[,]?\s*)?(?:feche|fechar|encerre|encerrar|close)\s+(?:o\s+)?(?:google\s+)?chrome\s*[.!]?$/i.test(trimmed)) {
+    return { action: 'browser.close', parameters: {}, description: 'Fechar a sessão automatizada do Chrome' };
+  }
+
   match = trimmed.match(/^(?:liste|listar|list)\s+(?:os\s+)?arquivos(?:\s+(?:em|da pasta)\s+["'`](.+?)["'`])?\s*[.!]?$/i);
   if (match) {
     return { action: 'files.list', parameters: { path: match[1] || '.' }, description: `Listar arquivos em ${match[1] || '.'}` };
@@ -153,7 +197,13 @@ const request = async (path: string, init?: RequestInit, timeoutMs = 70_000) => 
   }
 };
 
-export async function checkAutomationBridge(): Promise<{ ok: boolean; platform?: string; root?: string }> {
+export async function checkAutomationBridge(): Promise<{
+  ok: boolean;
+  platform?: string;
+  root?: string;
+  browserEngine?: string;
+  agentBrowser?: boolean;
+}> {
   const response = await request('/health');
   if (!response.ok) throw new Error(`Ponte local indisponível (HTTP ${response.status})`);
   return response.json();

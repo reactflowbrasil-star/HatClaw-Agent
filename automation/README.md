@@ -8,6 +8,16 @@ O aplicativo web conversa com uma ponte local que controla o Chrome por DOM e ma
 .\automation\start-bridge.ps1
 ```
 
+### Motor agent-browser
+
+Instale uma vez o motor nativo `agent-browser`:
+
+```powershell
+.\automation\install-agent-browser.ps1
+```
+
+Quando disponível, o bridge usa `agent-browser` como motor preferencial e mantém Selenium como fallback. A janela do Chrome é visível por padrão. Use `AGENT_BROWSER_HEADED=false` para execução headless ou `AUTOMATION_BROWSER_ENGINE=selenium` para forçar o motor anterior.
+
 Por padrão, os arquivos ficam em `Documents\HatClawAutomation`. Variáveis opcionais:
 
 ```powershell
@@ -41,6 +51,11 @@ elementos obsoletos e retornam erros legíveis quando a condição não é atend
 - `browser.scroll`: rola por coordenadas ou até um elemento.
 - `browser.wait`: aguarda `present`, `visible`, `clickable` ou `absent`.
 - `browser.extract` / `browser.read`: extrai texto, HTML, valor ou href.
+- `browser.snapshot`: produz o mapa acessível da página com referências do agent-browser.
+- `browser.screenshot`: salva uma captura dentro da pasta autorizada.
+- `browser.hover` / `browser.press`: move o mouse e envia teclas.
+- `browser.back` / `browser.forward` / `browser.reload`: controla o histórico da página.
+- `browser.close`: encerra a sessão automatizada.
 - `GET /v1/logs?limit=20`: retorna o registro das últimas execuções; textos preenchidos são ocultados.
 
 ## Exemplos no chat
@@ -59,5 +74,11 @@ elementos obsoletos e retornam erros legíveis quando a condição não é atend
 - `liste arquivos`
 - `leia o arquivo "notas.txt"`
 - `crie o arquivo "notas.txt" com "conteúdo"`
+- `inspecione a página`
+- `tire um screenshot`
+- `passe o mouse sobre "#menu"`
+- `pressione a tecla "Enter"`
+- `recarregue a página`
+- `feche o chrome`
 
 Não existe endpoint para shell arbitrário. URLs aceitam apenas HTTP/HTTPS e caminhos não podem sair da pasta autorizada.

@@ -8,9 +8,11 @@ from __future__ import annotations
 import json
 import os
 import platform
+import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import threading
 import time
 import uuid
@@ -38,7 +40,14 @@ MAX_LOG_ENTRIES = 200
 ALLOWED_ACTIONS = {
     "browser.open", "browser.navigate", "browser.query", "browser.click",
     "browser.type", "browser.fill", "browser.scroll", "browser.wait",
-    "browser.read", "browser.extract", "files.list", "files.read", "files.write",
+    "browser.read", "browser.extract", "browser.snapshot", "browser.screenshot",
+    "browser.hover", "browser.press", "browser.back", "browser.forward",
+    "browser.reload", "browser.close", "files.list", "files.read", "files.write",
+}
+AGENT_BROWSER_ACTIONS = {action for action in ALLOWED_ACTIONS if action.startswith("browser.")}
+AGENT_BROWSER_ONLY_ACTIONS = {
+    "browser.snapshot", "browser.screenshot", "browser.hover", "browser.press",
+    "browser.back", "browser.forward", "browser.reload", "browser.close",
 }
 _browser_lock = threading.Lock()
 _log_lock = threading.Lock()
@@ -58,6 +67,152 @@ def valid_url(value: str) -> str:
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         raise ValueError("A URL deve usar http ou https.")
     return value
+
+
+def agent_browser_binary() -> str | None:
+    configured = os.getenv("AGENT_BROWSER_BIN", "").strip()
+    candidates = [configured] if configured else []
+    candidates.extend(filter(None, [shutil.which("agent-browser"), shutil.which("agent-browser.cmd")]))
+    if platform.system() == "Windows":
+        local_app_data = Path(os.getenv("LOCALAPPDATA", ""))
+        candidates.extend([
+            str(local_app_data / "pnpm" / "agent-browser.cmd"),
+            str(local_app_data / "pnpm" / "bin" / "agent-browser.cmd"),
+            str(Path(__file__).resolve().parent.parent / "agent-browser-main" / "bin" / "agent-browser-win32-x64.exe"),
+        ])
+    return next((item for item in candidates if item and Path(item).is_file()), None)
+
+
+def agent_browser_enabled() -> bool:
+    engine = os.getenv("AUTOMATION_BROWSER_ENGINE", "auto").strip().lower()
+    return DEVICE == "desktop" and engine != "selenium" and agent_browser_binary() is not None
+
+
+def run_agent_browser(args: list[str], timeout: float = MAX_TIMEOUT) -> str:
+    binary = agent_browser_binary()
+    if not binary:
+        raise RuntimeError("agent-browser não instalado. Execute automation/install-agent-browser.ps1.")
+    session = re.sub(r"[^a-zA-Z0-9_-]", "-", os.getenv("AGENT_BROWSER_SESSION", "hatclaw"))[:64] or "hatclaw"
+    command = [binary, "--session", session]
+    if os.getenv("AGENT_BROWSER_HEADED", "true").lower() not in {"0", "false", "no"}:
+        command.append("--headed")
+    command.extend(args)
+    process_env = os.environ.copy()
+    process_env["NO_COLOR"] = "1"
+    # The native CLI starts a long-lived daemon. On Windows that daemon can
+    # inherit anonymous pipes and keep communicate() waiting for EOF forever,
+    # so regular temporary files are used instead of capture_output.
+    with tempfile.TemporaryFile(mode="w+b") as stdout_file, tempfile.TemporaryFile(mode="w+b") as stderr_file:
+        result = subprocess.run(
+            command,
+            stdout=stdout_file,
+            stderr=stderr_file,
+            timeout=max(1.0, min(timeout, MAX_TIMEOUT)),
+            env=process_env,
+            check=False,
+        )
+        stdout_file.seek(0)
+        stderr_file.seek(0)
+        output = stdout_file.read().decode("utf-8", errors="replace").strip()
+        error = stderr_file.read().decode("utf-8", errors="replace").strip()
+    if result.returncode != 0:
+        raise RuntimeError((error or output or "Falha no agent-browser.")[:5_000])
+    return output[:50_000]
+
+
+def browser_target(params: dict) -> str:
+    target = str(params.get("selector", "")).strip()
+    if not target or len(target) > 500:
+        raise ValueError("Seletor ou referência do navegador inválida.")
+    return target
+
+
+def execute_agent_browser(action: str, params: dict) -> tuple[str, object | None]:
+    timeout = action_timeout(params)
+    if action in {"browser.open", "browser.navigate"}:
+        url = valid_url(str(params.get("url", "https://www.google.com")))
+        run_agent_browser(["open", url], timeout)
+        return f"agent-browser abriu {url}.", {"url": url, "engine": "agent-browser"}
+
+    if action in {"browser.query", "browser.snapshot"}:
+        args = ["snapshot", "-i", "--json"]
+        selector = str(params.get("selector", "")).strip()
+        if selector:
+            args.extend(["-s", selector])
+        output = run_agent_browser(args, timeout)
+        try:
+            snapshot = json.loads(output)
+        except json.JSONDecodeError:
+            snapshot = {"content": output}
+        return "Snapshot acessível capturado pelo agent-browser.", {"snapshot": snapshot, "engine": "agent-browser"}
+
+    if action in {"browser.click", "browser.hover"}:
+        target = browser_target(params)
+        command = "click" if action == "browser.click" else "hover"
+        run_agent_browser([command, target], timeout)
+        return f"Ação {command} executada em {target}.", {"engine": "agent-browser"}
+
+    if action in {"browser.type", "browser.fill"}:
+        target = browser_target(params)
+        text = str(params.get("text", ""))
+        if len(text) > 50_000:
+            raise ValueError("O texto excede 50.000 caracteres.")
+        run_agent_browser(["type" if action == "browser.type" else "fill", target, text], timeout)
+        return f"Campo preenchido em {target} pelo agent-browser.", {"engine": "agent-browser"}
+
+    if action in {"browser.read", "browser.extract"}:
+        target = browser_target(params)
+        mode = "text" if action == "browser.read" else str(params.get("mode", "text")).lower()
+        if mode not in {"text", "html", "value", "href"}:
+            raise ValueError("Modo de extração deve ser text, html, value ou href.")
+        args = ["get", "attr", target, "href"] if mode == "href" else ["get", mode, target]
+        output = run_agent_browser(args, timeout)
+        return f"Conteúdo extraído de {target}.", {"mode": mode, "content": output, "engine": "agent-browser"}
+
+    if action == "browser.scroll":
+        selector = str(params.get("selector", "")).strip()
+        if selector:
+            run_agent_browser(["scrollintoview", selector], timeout)
+            return f"Rolagem executada até {selector}.", {"engine": "agent-browser"}
+        try:
+            y = int(params.get("y", 500))
+        except (TypeError, ValueError) as exc:
+            raise ValueError("Coordenada de rolagem inválida.") from exc
+        run_agent_browser(["scroll", "down" if y >= 0 else "up", str(abs(y))], timeout)
+        return f"Rolagem executada em {y} pixels.", {"engine": "agent-browser"}
+
+    if action == "browser.wait":
+        target = browser_target(params)
+        run_agent_browser(["wait", target], timeout)
+        return f"Elemento {target} ficou disponível.", {"engine": "agent-browser"}
+
+    if action == "browser.screenshot":
+        relative = str(params.get("path", "screenshots/hatclaw-browser.png"))
+        path = safe_path(relative)
+        if path.suffix.lower() not in {".png", ".jpg", ".jpeg"}:
+            raise ValueError("Screenshot deve usar extensão PNG, JPG ou JPEG.")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        args = ["screenshot", str(path)]
+        if str(params.get("full", "false")).lower() in {"1", "true", "yes"}:
+            args.append("--full")
+        run_agent_browser(args, timeout)
+        return "Screenshot capturado pelo agent-browser.", {"path": str(path.relative_to(ROOT)), "engine": "agent-browser"}
+
+    if action == "browser.press":
+        key = str(params.get("key", "")).strip()
+        if not key or len(key) > 80 or not re.fullmatch(r"[a-zA-Z0-9+_-]+", key):
+            raise ValueError("Tecla inválida.")
+        run_agent_browser(["press", key], timeout)
+        return f"Tecla {key} pressionada.", {"engine": "agent-browser"}
+
+    commands = {
+        "browser.back": "back", "browser.forward": "forward",
+        "browser.reload": "reload", "browser.close": "close",
+    }
+    if action in commands:
+        run_agent_browser([commands[action]], timeout)
+        return f"Comando {commands[action]} executado.", {"engine": "agent-browser"}
+    raise ValueError("Ação agent-browser não permitida.")
 
 
 def adb_open(url: str) -> None:
@@ -199,6 +354,12 @@ def record_execution(execution_id: str, action: str, params: dict, started: floa
 
 
 def execute(action: str, params: dict) -> tuple[str, object | None]:
+    if action in AGENT_BROWSER_ACTIONS and DEVICE == "desktop":
+        if agent_browser_enabled():
+            return execute_agent_browser(action, params)
+        if action in AGENT_BROWSER_ONLY_ACTIONS:
+            raise RuntimeError("Esta ação requer agent-browser. Execute automation/install-agent-browser.ps1.")
+
     if action in {"browser.open", "browser.navigate"}:
         url = valid_url(str(params.get("url", "https://www.google.com")))
         if DEVICE == "android" and action == "browser.open":
@@ -325,7 +486,14 @@ class Handler(BaseHTTPRequestHandler):
             self.reply(404 if request_url.path not in {"/health", "/v1/logs"} else 403, {"ok": False, "message": "Indisponível."})
             return
         if request_url.path == "/health":
-            self.reply(200, {"ok": True, "platform": platform.system(), "device": DEVICE, "root": str(ROOT)})
+            self.reply(200, {
+                "ok": True,
+                "platform": platform.system(),
+                "device": DEVICE,
+                "root": str(ROOT),
+                "browserEngine": "agent-browser" if agent_browser_enabled() else ("appium" if DEVICE == "android" else "selenium"),
+                "agentBrowser": agent_browser_enabled(),
+            })
             return
         try:
             limit = min(200, max(1, int(parse_qs(request_url.query).get("limit", [50])[0])))
