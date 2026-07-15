@@ -192,9 +192,35 @@ azd env set AI_AGENT_ID <agent-name>
 
 > 💡 `azd provision` (or `azd up`) automatically regenerates `.env` files and updates RBAC assignments when configuration changes.
 
+## TopoClaw Integration
+
+This project now integrates **TopoClaw**, providing "Total Automation" capabilities:
+
+- **Browser Automation**: The agent can now use a real browser to navigate, login, and extract data.
+- **System Skills**: GitHub integration, terminal (tmux) control, file management, and more.
+- **Custom Skills**: You can add your own Python-based skills in the `TopoClaw-main/TopoClaw/topoclaw/skills` directory.
+
+### Configuration
+
+To enable total automation:
+1.  **Environment**: Ensure Python 3.11+ is installed (handled automatically in Docker).
+2.  **API Keys**: Configure TopoClaw in `TopoClaw-main/TopoClaw/.env` or `config.json`.
+3.  **Foundry Tool**: In the AI Foundry portal, add a Function tool to your agent:
+    - Name: `run_topoclaw_skill`
+    - Parameters: `{"skill_name": "string", "payload": "object"}`
+
+### Local Development
+The `azd up` command will build the container with TopoClaw included. For local development, start the TopoClaw service manually:
+```bash
+cd TopoClaw-main/TopoClaw
+uv pip install -e .
+python -m topoclaw service
+```
+
 ## Features
 
 - **AI Chat** — Real-time streaming chat with Azure AI Foundry agents
+- **TopoClaw Integration** — Total automation via TopoClaw skills (Browser, GitHub, CLI, etc.)
 - **Message Actions** — Copy, regenerate, edit, and rate responses
 - **Rich Input** — Voice dictation, drag-and-drop files, keyboard shortcuts
 - **Conversation Management** — History sidebar, search, export as Markdown

@@ -88,9 +88,9 @@ builder.Services.AddCors(options =>
 });
 
 // Register Foundry Agent Service (v2 Agents API)
-// Uses Azure.AI.Projects SDK which works with v2 Agents API (/agents/ endpoint with human-readable IDs).
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<AgentFrameworkService>();
+builder.Services.AddScoped<TopoClawService>();
 
 var app = builder.Build();
 
@@ -119,6 +119,28 @@ app.UseRateLimiter();
 // Unauthenticated health endpoint for container probes
 app.MapGet("/api/health", () => Results.Ok(new { status = "healthy" }))
 .WithName("GetHealth");
+
+// TopoClaw Integration Endpoints
+app.MapGet("/api/topoclaw/skills", async (TopoClawService topoService, CancellationToken ct) =>
+{
+    try
+    {
+        var skills = await topoService.ListSkillsAsync(ct);
+        return Results.Ok(skills);
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem(ex.Message);
+    }
+})
+.WithName("GetTopoClawSkills");
+
+app.MapGet("/api/topoclaw/health", async (TopoClawService topoService, CancellationToken ct) =>
+{
+    var healthy = await topoService.IsHealthyAsync(ct);
+    return Results.Ok(new { status = healthy ? "healthy" : "unhealthy" });
+})
+.WithName("GetTopoClawHealth");
 
 // Streaming Chat endpoint: Streams agent response via SSE (conversationId → chunks → usage → done)
 // Supports MCP tool approval flow with previousResponseId and mcpApproval parameters

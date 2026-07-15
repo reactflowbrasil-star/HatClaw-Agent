@@ -48,26 +48,72 @@ COPY backend/ ./backend/
 # Build and publish
 RUN dotnet publish backend/WebApp.Api/WebApp.Api.csproj -c Release -o /app/publish
 
-# Stage 3: Runtime - .NET API serving both backend and frontend static files
+# Stage 3: Runtime - .NET API + Python (TopoClaw)
 FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine
 
 WORKDIR /app
 
+# Install Python and dependencies for TopoClaw
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    bash \
+    curl \
+    git \
+    libstdc++ \
+    gcompat \
+    nss \
+    nspr \
+    at-spi2-atk \
+    libdrm \
+    mesa-gbm \
+    libxkbcommon \
+    libxcomposite \
+    libxdamage \
+    libxrandr \
+    pango \
+    cairo \
+    asound-libs
+
+# Install 'uv' for fast dependency management
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uv/bin/uv
+ENV PATH="/uv/bin:$PATH"
+
 # Copy published .NET API
 COPY --from=backend-builder /app/publish ./
 
-# Copy built React frontend into wwwroot (ASP.NET static files directory)
+# Copy built React frontend into wwwroot
 COPY --from=frontend-builder /app/frontend/dist ./wwwroot
 
-# Expose port
+# Copy TopoClaw-main into the container
+COPY TopoClaw-main/ /app/TopoClaw-main/
+
+# Install TopoClaw dependencies (using --system to install into the main python env in alpine)
+# Note: Conflict resolution for browser-use might need --prerelease=allow or version pinning
+RUN cd /app/TopoClaw-main/TopoClaw && \
+    uv pip install --system -e .[browser-compat] || \
+    uv pip install --system -e .
+
+# Expose ports: 8080 (.NET API), 18790 (TopoClaw Service)
 EXPOSE 8080
+EXPOSE 18790
 
 # Set environment variables
 ENV ASPNETCORE_URLS=http://+:8080
 ENV ASPNETCORE_ENVIRONMENT=Production
+ENV TOPOCLAW_WORKSPACE=/app/workspace
+ENV TOPOCLAW_CONFIG=/app/config.json
 
-# Run as non-root user (built-in 'app' user in ASP.NET alpine images)
+# Create workspace and config
+RUN mkdir -p /app/workspace && \
+    echo '{"agents":{"defaults":{"provider":"openai"}}}' > /app/config.json
+
+# Use a startup script to run both services
+COPY deployment/docker/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+# Run as non-root user (but need to make sure 'app' has access to workspace)
+RUN chown -R app:app /app
 USER app
 
-# Start the .NET API (which will also serve frontend static files from wwwroot)
-ENTRYPOINT ["dotnet", "WebApp.Api.dll"]
+ENTRYPOINT ["/app/entrypoint.sh"]
