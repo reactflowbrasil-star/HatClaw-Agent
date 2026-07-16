@@ -305,38 +305,17 @@ public class AgentFrameworkService : IDisposable
         var definition = agent.Definition as DeclarativeAgentDefinition;
         if (definition == null) return;
 
-        bool hasTool = definition.Tools.Any(t => t is FunctionToolDefinition ft && ft.Name == "run_topoclaw_skill");
+        bool hasTool = definition.Tools.Any(t =>
+        {
+            var nameProperty = t.GetType().GetProperty("Name");
+            return string.Equals(
+                nameProperty?.GetValue(t)?.ToString(),
+                "run_topoclaw_skill",
+                StringComparison.Ordinal);
+        });
         if (!hasTool)
         {
-            _logger.LogInformation("Registering TopoClaw tool for agent {AgentId}", _agentId);
-
-            var tool = new FunctionToolDefinition(
-                "run_topoclaw_skill",
-                "Executes a TopoClaw automation skill (browser, github, tmux, etc.).",
-                BinaryData.FromObjectAsJson(new
-                {
-                    type = "object",
-                    properties = new
-                    {
-                        skill_name = new { type = "string", description = "The name of the TopoClaw skill to run." },
-                        payload = new { type = "object", description = "The arguments for the skill." }
-                    },
-                    required = new[] { "skill_name" }
-                })
-            );
-
-            // Note: Updating agent version might require creating a new version.
-            // In v2 Agents API, we can try to update the agent metadata.
-            try
-            {
-                // This is a simplified registration. In production, you'd want to manage versions properly.
-                // client.AgentAdministrationClient.UpdateAgentAsync(...)
-                _logger.LogWarning("TopoClaw tool missing. Please add a function tool named 'run_topoclaw_skill' in AI Foundry portal for 'total automation'.");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Failed to register TopoClaw tool");
-            }
+            _logger.LogWarning("TopoClaw tool missing. Please add a function tool named 'run_topoclaw_skill' in AI Foundry portal for 'total automation'.");
         }
     }
 
@@ -520,42 +499,6 @@ public class AgentFrameworkService : IDisposable
             {
                 _logger.LogError("Stream error: {Error}", errorUpdate.Message);
                 throw new InvalidOperationException($"Stream error: {errorUpdate.Message}");
-            }
-            else if (update is StreamingResponseActionRequiredUpdate actionUpdate)
-            {
-                _logger.LogInformation("Action required: {Count} tool calls", actionUpdate.ToolCalls.Count);
-                var toolOutputs = new List<ToolOutput>();
-
-                foreach (var toolCall in actionUpdate.ToolCalls)
-                {
-                    if (toolCall is FunctionToolCall functionCall && functionCall.Name == "run_topoclaw_skill")
-                    {
-                        _logger.LogInformation("Executing TopoClaw skill tool: {Arguments}", functionCall.Arguments);
-                        try
-                        {
-                            var args = JsonSerializer.Deserialize<JsonElement>(functionCall.Arguments);
-                            var skillName = args.GetProperty("skill_name").GetString() ?? "unknown";
-                            var payload = args.GetProperty("payload");
-
-                            var result = await _topoClawService.ExecuteSkillAsync(skillName, payload, cancellationToken);
-                            toolOutputs.Add(new ToolOutput(toolCall.Id, JsonSerializer.Serialize(result)));
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.LogError(ex, "Failed to execute TopoClaw skill tool");
-                            toolOutputs.Add(new ToolOutput(toolCall.Id, JsonSerializer.Serialize(new { error = ex.Message })));
-                        }
-                    }
-                }
-
-                if (toolOutputs.Count > 0)
-                {
-                    // Submit tool outputs and continue streaming
-                    // Note: The SDK's CreateResponseStreamingAsync might not automatically resume
-                    // We might need to handle this by submitting tool outputs separately.
-                    // For now, we signal to the frontend that a local tool was handled.
-                    yield return StreamChunk.ToolUse("topoclaw_skill_executed");
-                }
             }
             else
             {

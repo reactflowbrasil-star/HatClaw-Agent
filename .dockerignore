@@ -62,6 +62,9 @@ infra
 README.md
 *.md
 docs
+codex-memory-export
+codex-memory-export.zip
+graphify-out
 
 # IDE and scripts (not needed in container)
 .vscode

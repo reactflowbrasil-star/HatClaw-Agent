@@ -120,6 +120,23 @@ app.UseRateLimiter();
 app.MapGet("/api/health", () => Results.Ok(new { status = "healthy" }))
 .WithName("GetHealth");
 
+// Public automation status endpoint. The actual DOM/file automation bridge runs
+// locally on the user's device; this endpoint lets remote clients verify that
+// the web app exposes the automation contract as JSON instead of SPA HTML.
+app.MapGet("/api/automation", () => Results.Ok(new
+{
+    status = "ok",
+    automation = "ready",
+    mode = "local-bridge",
+    bridge = new
+    {
+        health = "/health",
+        actions = "/v1/actions",
+        logs = "/v1/logs"
+    }
+}))
+.WithName("GetAutomationStatus");
+
 // TopoClaw Integration Endpoints
 app.MapGet("/api/topoclaw/skills", async (TopoClawService topoService, CancellationToken ct) =>
 {

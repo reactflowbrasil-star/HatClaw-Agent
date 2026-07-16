@@ -64,7 +64,7 @@ RUN apk add --no-cache \
     gcompat \
     nss \
     nspr \
-    at-spi2-atk \
+    at-spi2-core \
     libdrm \
     mesa-gbm \
     libxkbcommon \
@@ -73,11 +73,11 @@ RUN apk add --no-cache \
     libxrandr \
     pango \
     cairo \
-    asound-libs
+    alsa-lib
 
 # Install 'uv' for fast dependency management
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uv/bin/uv
-ENV PATH="/uv/bin:$PATH"
+ENV PATH="/app/topoclaw-venv/bin:/uv/bin:$PATH"
 
 # Copy published .NET API
 COPY --from=backend-builder /app/publish ./
@@ -88,11 +88,12 @@ COPY --from=frontend-builder /app/frontend/dist ./wwwroot
 # Copy TopoClaw-main into the container
 COPY TopoClaw-main/ /app/TopoClaw-main/
 
-# Install TopoClaw dependencies (using --system to install into the main python env in alpine)
-# Note: Conflict resolution for browser-use might need --prerelease=allow or version pinning
+# Install TopoClaw dependencies in a venv. Alpine marks the system Python as
+# externally managed, so installing into /usr with --system fails under PEP 668.
 RUN cd /app/TopoClaw-main/TopoClaw && \
-    uv pip install --system -e .[browser-compat] || \
-    uv pip install --system -e .
+    uv venv /app/topoclaw-venv && \
+    uv pip install --python /app/topoclaw-venv/bin/python -e .[browser-compat] || \
+    uv pip install --python /app/topoclaw-venv/bin/python -e .
 
 # Expose ports: 8080 (.NET API), 18790 (TopoClaw Service)
 EXPOSE 8080

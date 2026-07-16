@@ -3538,5 +3538,10 @@
     "mtime": 1778551092.0,
     "ast_hash": "1de96990115c96487393b05125b4786f",
     "semantic_hash": "1de96990115c96487393b05125b4786f"
+  },
+  "codex-memory-export/project-state.json": {
+    "mtime": 1784158871.994375,
+    "ast_hash": "ad50b3c7c9a3f9857a5b115ae57b60f4",
+    "semantic_hash": "ad50b3c7c9a3f9857a5b115ae57b60f4"
   }
 }
