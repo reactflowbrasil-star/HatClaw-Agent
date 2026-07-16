@@ -130,9 +130,9 @@
     "semantic_hash": "da3ba57157f6b5941119606fb1c0c8eb"
   },
   "backend/WebApp.Api/Program.cs": {
-    "mtime": 1784157935.6944947,
-    "ast_hash": "167b56135208fa6b9cfa5318496bc2c2",
-    "semantic_hash": "167b56135208fa6b9cfa5318496bc2c2"
+    "mtime": 1784159963.0597348,
+    "ast_hash": "2886c81ec545a50b06e74b368d5acc3a",
+    "semantic_hash": "2886c81ec545a50b06e74b368d5acc3a"
   },
   "backend/WebApp.Api/Properties/launchSettings.json": {
     "mtime": 1776814048.0,
@@ -140,9 +140,9 @@
     "semantic_hash": "e8eeabd538a6473e302bde04999681fb"
   },
   "backend/WebApp.Api/Services/AgentFrameworkService.cs": {
-    "mtime": 1784157966.1918814,
-    "ast_hash": "b8dee130b5712efbfe0784bd058b5a05",
-    "semantic_hash": "b8dee130b5712efbfe0784bd058b5a05"
+    "mtime": 1784160023.9689548,
+    "ast_hash": "ee89a5ede768f2c5e6d77a01e3d289d1",
+    "semantic_hash": "ee89a5ede768f2c5e6d77a01e3d289d1"
   },
   "backend/WebApp.Api/WebApp.Api.csproj": {
     "mtime": 1776814048.0,
@@ -3515,9 +3515,9 @@
     "semantic_hash": "1639db41dceb162df57eb0649ba8d5ee"
   },
   "deployment/docker/entrypoint.sh": {
-    "mtime": 1784157918.8173332,
-    "ast_hash": "2d4fba84f5c79f0414df6d16be5cf440",
-    "semantic_hash": "2d4fba84f5c79f0414df6d16be5cf440"
+    "mtime": 1784160128.407787,
+    "ast_hash": "b6d113fc437cc27091f834c70d91d7af",
+    "semantic_hash": "b6d113fc437cc27091f834c70d91d7af"
   },
   "TopoClaw-main/TopoMobile/app/src/main/res/raw/task_complete.mp3": {
     "mtime": 1778551092.0,
@@ -3538,5 +3538,10 @@
     "mtime": 1778551092.0,
     "ast_hash": "1de96990115c96487393b05125b4786f",
     "semantic_hash": "1de96990115c96487393b05125b4786f"
+  },
+  "codex-memory-export/project-state.json": {
+    "mtime": 1784158871.994375,
+    "ast_hash": "ad50b3c7c9a3f9857a5b115ae57b60f4",
+    "semantic_hash": "ad50b3c7c9a3f9857a5b115ae57b60f4"
   }
 }
